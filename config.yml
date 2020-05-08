@@ -1,5 +1,5 @@
-title: scipiper tips and tricks
-description: Common issues and approaches for debugging scipiper pipelines
+title: Many-task pipelines
+description: Split-apply-combine paradigm and our implementations
 template:
   name: ds-pipelines-2-template
   repo: ds-pipelines-2
