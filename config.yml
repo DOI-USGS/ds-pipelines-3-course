@@ -30,26 +30,30 @@ steps:
         title: Meet the example problem
         body: 10-no-table.md
         store:
-          no_table_url: '{{ result.data.html_url }}'
+          url_10: '{{ result.data.html_url }}'
       - type: respond
         with: zz-start-branch.md
   - title: Meet the example problem
     description: Prepare to download and plot information about USGS's oldest streamflow gages
-    link: '{{ store.no_table_url }}'
+    link: '{{ store.url_10 }}'
     event: issue_comment.created
     actions:
       - type: respond
         with: 11-explore-pipeline.md
+        store:
+          url_11: '{{ result.data.html_url }}'
   - title: Explore the starter pipeline
     description: Inspect and run the existing pipeline
-    link: '{{ store.no_table_url }}'
+    link: '{{ store.url_11 }}'
     event: issue_comment.created
     actions:
       - type: respond
         with: 12-explore-purrr.md
+        store:
+          url_12: '{{ result.data.html_url }}'
   - title: Spot the split-apply-combine
     description: 'Meet `purrr::map_df()`'
-    link: '{{ store.no_table_url }}'
+    link: '{{ store.url_12 }}'
     event: issue_comment.created
     actions:
       - type: respond
