@@ -12,4 +12,4 @@ Write three **scipiper** targets in *remake.yml* to apply `get_sites_data()` to 
 
 When you're satisfied with your code, open a PR to merge the "three-states" branch into "master". In the description box for that PR, include a screenshot or transcript of your console session where the targets get built.
 
-<hr><h3 align="center">I'll respond in your new PR. You may need to refresh the PR page to see my response.</h3>
+<hr><h3 align="center">I'll respond in your new PR.</h3>
