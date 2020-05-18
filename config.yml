@@ -24,6 +24,8 @@ steps:
     link: '{{ store.setup_repo_url }}'
     event: issues.closed
     actions:
+      - type: respond
+        with: zz-next-issue.md
       - type: createIssue
         title: Meet the example problem
         body: 10-no-table.md
@@ -35,7 +37,7 @@ steps:
     event: issues.closed
     actions:
       - type: respond
-        with: zz-goto-next-issue.md
+        with: zz-next-issue.md
       - type: createIssue
         title: >-
           What's next
