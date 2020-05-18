@@ -23,22 +23,22 @@ steps:
     description: Git clone the repo to your computer
     link: '{{ store.setup_repo_url }}'
     event: issues.closed
-#    actions:
-#      - type: respond
-#        with: zz-next-issue.md
-#      - type: createIssue
-#        title: Meet the example problem
-#        body: 10-no-table.md
-#        comments:
-#          - zz-start-branch.md
-#        data:
-#          branch: three-states
-#        store:
-#          url_10: '{{ result.data.html_url }}'
-#  - title: Meet the example problem
-#    description: Prepare to download and plot information about USGS's oldest streamflow gages
-#    link: '{{ store.url_10 }}'
-#    event: issues.assigned
+    actions:
+      - type: respond
+        with: zz-next-issue.md
+      - type: createIssue
+        title: Meet the example problem
+        body: 10-no-table.md
+        comments:
+          - zz-start-branch.md
+        data:
+          branch: three-states
+        store:
+          url_10: '{{ result.data.html_url }}'
+  - title: Meet the example problem
+    description: Prepare to download and plot information about USGS's oldest streamflow gages
+    link: '{{ store.url_10 }}'
+    event: issues.assigned
 #    actions:
 #      - type: respond
 #        with: 11-explore-pipeline.md
