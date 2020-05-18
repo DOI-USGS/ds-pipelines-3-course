@@ -1,6 +1,6 @@
-Without modifying any code, start by inspecting and running the existing data pipeline.
-
 ### :keyboard: Explore the starter pipeline
+
+Without modifying any code, start by inspecting and running the existing data pipeline.
 
 - [ ] Open up *remake.yml* and read through - can you guess what will happen when you build the pipeline?
 - [ ] Build all targets in the pipeline.
