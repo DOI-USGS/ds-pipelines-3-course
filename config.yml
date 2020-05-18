@@ -74,18 +74,18 @@ steps:
           issue_num: '{{ store.issue_num_10 }}'
         store:
           url_14: '{{ result.data.html_url }}'
-#  - title: Get your PR reviewed
-#    description: Run your changes and questions by a human reviewer
-#    link: '{{ store.url_14 }}'
-#    event: pull_request.closed
-#    actions:
+  - title: Get your PR reviewed
+    description: Run your changes and questions by a human reviewer
+    link: '{{ store.url_14 }}'
+    event: pull_request.closed
+    actions:
 #      - type: gate
 #        left: '%payload.pull_request.merged%'
 #        else:
 #          - type: respond
 #            with: zz-merge-me.md
-#      - type: respond
-#        with: zz-next-issue.md
+      - type: respond
+        with: zz-next-issue.md
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_10 }}'
 #      - type: createIssue
