@@ -39,7 +39,7 @@ steps:
     event: issues.assigned
     actions:
       - type: respond
-        with: 11-explore-pipeline.md
+        with: gohere.md
         store:
           url_11: '{{ result.data.html_url }}'
   - title: Explore the starter pipeline
