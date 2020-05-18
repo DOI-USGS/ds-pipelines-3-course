@@ -87,7 +87,7 @@ steps:
       - type: respond
         with: zz-next-issue.md
       - type: closeIssue
-        issue: '{{ issue_num_10 }}'
+        issue: '{{ store.issue_num_10 }}'
       - type: createIssue
         title: >-
           What's next
