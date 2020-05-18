@@ -29,7 +29,8 @@ steps:
       - type: createIssue
         title: Meet the example problem
         body: 10-no-table.md
-        comments: zz-start-branch.md
+        comments:
+          - zz-start-branch.md
         data:
           branch: three-states
         store:
