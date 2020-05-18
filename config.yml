@@ -5,17 +5,38 @@ template:
   name: ds-pipelines-3
 before:
   - type: createIssue
-    title: Recognize the unique demands of big collaborative pipelines
+    title: Recognize the unique demands of data-rich pipelines
     body: 00-overview.md
     store:
       overview_issue_url: '{{ result.data.html_url }}'
 steps:
   - title: Get the big picture
-    description: Recognize the unique demands of big collaborative pipelines
+    description: Recognize the unique demands of data-rich pipelines
     link: '{{ store.overview_issue_url }}'
     event: issues.assigned
     actions:
       - type: respond
-        with: 01-access-caches.md
+        with: 01-setup-repo.md
         store:
-          install_activity_url: '{{ result.data.html_url }}'
+          setup_repo_url: '{{ result.data.html_url }}'
+  - title: Set up your local repo
+    description: Git clone the repo to your computer
+    link: '{{ store.setup_repo_url }}'
+    event: issues.closed
+    actions:
+      - type: createIssue
+        title: Meet the example problem
+        body: 10-no-table.md
+        store:
+          no_table_url: '{{ result.data.html_url }}'
+  - title: Meet the example problem
+    description: Download and plot information about USGS's oldest streamflow gages
+    link: '{{ store.no_table_url }}'
+    event: issues.closed
+    actions:
+      - type: respond
+        with: zz-goto-next-issue.md
+      - type: createIssue
+        title: >-
+          What's next
+        body: 90-whats-next.md
