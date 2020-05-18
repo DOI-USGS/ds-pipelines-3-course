@@ -15,6 +15,6 @@ This function:
 
 and it all happened in just one line! The *split-apply-combine* operations we'll be exploring in this course require more code and are more useful for slow or fault-prone activities, but they follow the same general pattern.
 
-Check out the documentation for mapdf if this function is new to you.
+Check out the documentation for `?purrr::map_df` [online here](https://purrr.tidyverse.org/reference/map.html) if this function is new to you.
 
 <hr><h3 align="center">When you're ready, comment again on this issue.</h3>

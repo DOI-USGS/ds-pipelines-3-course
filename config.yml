@@ -48,15 +48,15 @@ steps:
     description: Inspect and run the existing pipeline
     link: '{{ store.url_11 }}'
     event: issue_comment.created
-    actions:
-      - type: respond
-        with: 12-explore-purrr.md
-        store:
-          url_12: '{{ result.data.html_url }}'
-  - title: Spot the split-apply-combine
-    description: 'Meet `purrr::map_df()`'
-    link: '{{ store.url_12 }}'
-    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 12-explore-purrr.md
+#        store:
+#          url_12: '{{ result.data.html_url }}'
+#  - title: Spot the split-apply-combine
+#    description: 'Meet `purrr::map_df()`'
+#    link: '{{ store.url_12 }}'
+#    event: issue_comment.created
 #    actions:
 #      - type: respond
 #        with: 13-state-by-state.md
