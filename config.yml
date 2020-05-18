@@ -29,12 +29,11 @@ steps:
       - type: createIssue
         title: Meet the example problem
         body: 10-no-table.md
-        store:
-          url_10: '{{ result.data.html_url }}'
-      - type: respond
-        with: zz-start-branch.md
+        comments: zz-start-branch.md
         data:
           branch: three-states
+        store:
+          url_10: '{{ result.data.html_url }}'
   - title: Meet the example problem
     description: Prepare to download and plot information about USGS's oldest streamflow gages
     link: '{{ store.url_10 }}'
