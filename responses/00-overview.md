@@ -16,4 +16,4 @@ There can be variations on this basic paradigm, especially for larger projects:
 Assign yourself to this issue to explore the split-apply-combine paradigm further.
 
 <hr>
-<h3 align="center">I, the Learning Lab Bot, will sit patiently until you've assigned yourself to this issue. Remember to be patient with me, too -- sometimes I need a few seconds and/or a refresh before you'll see my response.</h3>
+<h3 align="center">I, the Learning Lab Bot, will sit patiently until you've assigned yourself to this issue.<p>Please remember to be patient with me, too - sometimes I need a few seconds and/or a refresh before you'll see my response.</h3>

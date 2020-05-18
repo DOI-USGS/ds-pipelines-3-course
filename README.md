@@ -1,3 +1,3 @@
-# Learning Lab Boilerplate
+# Many-task pipelines
 
-This repository is a boilerplate for creating [Learning Lab courses](https://lab.github.com/docs/).
+This repository contains the messages and actions for a course on USGS Data Science data pipelines that contain many similar tasks.
