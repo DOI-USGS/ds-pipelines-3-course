@@ -63,17 +63,17 @@ steps:
         with: 13-state-by-state.md
         store:
           url_13: '{{ result.data.html_url }}'
-#  - title: Add data targets for each state
-#    description: Create a many-task remakefile the hard way
-#    link: '{{ store.url_13 }}'
-#    event: pull_request.opened
-#    actions:
-#      - type: respond
-#        with: 14-retro.md
-#        data:
-#          issue_num: '{{ store.issue_num_10 }}'
-#        store:
-#          url_14: '{{ result.data.html_url }}'
+  - title: Add data targets for each state
+    description: Create a many-task remakefile the hard way
+    link: '{{ store.url_13 }}'
+    event: pull_request.opened
+    actions:
+      - type: respond
+        with: 14-retro.md
+        data:
+          issue_num: '{{ store.issue_num_10 }}'
+        store:
+          url_14: '{{ result.data.html_url }}'
 #  - title: Get your PR reviewed
 #    description: Run your changes and questions by a human reviewer
 #    link: '{{ store.url_14 }}'
