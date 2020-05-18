@@ -14,56 +14,56 @@ steps:
     description: Recognize the unique demands of data-rich pipelines
     link: '{{ store.overview_issue_url }}'
     event: issues.assigned
-    actions:
-      - type: respond
-        with: 01-setup-repo.md
-        store:
-          setup_repo_url: '{{ result.data.html_url }}'
-  - title: Set up your local repo
-    description: Git clone the repo to your computer
-    link: '{{ store.setup_repo_url }}'
-    event: issues.closed
-    actions:
-      - type: respond
-        with: zz-next-issue.md
-      - type: createIssue
-        title: Meet the example problem
-        body: 10-no-table.md
-        comments:
-          - zz-start-branch.md
-        data:
-          branch: three-states
-        store:
-          url_10: '{{ result.data.html_url }}'
-  - title: Meet the example problem
-    description: Prepare to download and plot information about USGS's oldest streamflow gages
-    link: '{{ store.url_10 }}'
-    event: issues.assigned
-    actions:
-      - type: respond
-        with: 11-explore-pipeline.md
-        store:
-          url_11: '{{ result.data.html_url }}'
-  - title: Explore the starter pipeline
-    description: Inspect and run the existing pipeline
-    link: '{{ store.url_11 }}'
-    event: issue_comment.created
-    actions:
-      - type: respond
-        with: 12-explore-purrr.md
-        store:
-          url_12: '{{ result.data.html_url }}'
-  - title: Spot the split-apply-combine
-    description: 'Meet `purrr::map_df()`'
-    link: '{{ store.url_12 }}'
-    event: issue_comment.created
-    actions:
-      - type: respond
-        with: 13-state-by-state.md
-  - title: Add data targets for each state
-    description: Create a many-task remakefile the hard way
-    link: '{{ store.no_table_url }}'
-    event: issues.closed
+#    actions:
+#      - type: respond
+#        with: 01-setup-repo.md
+#        store:
+#          setup_repo_url: '{{ result.data.html_url }}'
+#  - title: Set up your local repo
+#    description: Git clone the repo to your computer
+#    link: '{{ store.setup_repo_url }}'
+#    event: issues.closed
+#    actions:
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: createIssue
+#        title: Meet the example problem
+#        body: 10-no-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: three-states
+#        store:
+#          url_10: '{{ result.data.html_url }}'
+#  - title: Meet the example problem
+#    description: Prepare to download and plot information about USGS's oldest streamflow gages
+#    link: '{{ store.url_10 }}'
+#    event: issues.assigned
+#    actions:
+#      - type: respond
+#        with: 11-explore-pipeline.md
+#        store:
+#          url_11: '{{ result.data.html_url }}'
+#  - title: Explore the starter pipeline
+#    description: Inspect and run the existing pipeline
+#    link: '{{ store.url_11 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 12-explore-purrr.md
+#        store:
+#          url_12: '{{ result.data.html_url }}'
+#  - title: Spot the split-apply-combine
+#    description: 'Meet `purrr::map_df()`'
+#    link: '{{ store.url_12 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 13-state-by-state.md
+#  - title: Add data targets for each state
+#    description: Create a many-task remakefile the hard way
+#    link: '{{ store.no_table_url }}'
+#    event: issues.closed
     actions:
       - type: respond
         with: zz-next-issue.md
