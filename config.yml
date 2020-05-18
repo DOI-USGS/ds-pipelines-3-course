@@ -88,7 +88,7 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_10 }}'
-#      - type: createIssue
-#        title: >-
-#          What's next
-#        body: 90-whats-next.md
+      - type: createIssue
+        title: >-
+          What's next
+        body: 90-whats-next.md
