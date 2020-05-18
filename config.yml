@@ -86,8 +86,8 @@ steps:
             with: zz-merge-me.md
       - type: respond
         with: zz-next-issue.md
-#      - type: closeIssue
-#        issue: '{{ store.issue_num_10 }}'
+      - type: closeIssue
+        issue: '{{ store.issue_num_10 }}'
 #      - type: createIssue
 #        title: >-
 #          What's next
