@@ -57,13 +57,13 @@ steps:
 #    description: 'Meet `purrr::map_df()`'
 #    link: '{{ store.url_12 }}'
 #    event: issue_comment.created
-#    actions:
-#      - type: respond
-#        with: 13-state-by-state.md
-#  - title: Add data targets for each state
-#    description: Create a many-task remakefile the hard way
-#    link: '{{ store.no_table_url }}'
-#    event: issues.closed
+    actions:
+      - type: respond
+        with: 13-state-by-state.md
+  - title: Add data targets for each state
+    description: Create a many-task remakefile the hard way
+    link: '{{ store.no_table_url }}'
+    event: issues.closed
     actions:
       - type: respond
         with: zz-next-issue.md
