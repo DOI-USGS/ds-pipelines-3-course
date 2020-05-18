@@ -7,4 +7,4 @@ git checkout -b {{ branch }}
 git push -u origin {{ branch }}
 ```
 
-<hr><h3 align="center">Comment on this issue when your local branch is set up and synced.</h3>
+<hr><h3 align="center">Assign yourself to this issue when your local branch is set up and synced.</h3>
