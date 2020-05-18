@@ -1,10 +1,15 @@
-Awesome, time for your first code changes :pencil:.
-
 ### :keyboard: Apply a downloading function to each state
 
-Write three **scipiper** targets in *remake.yml* to apply `get_sites_data()` to each state in `states`. The targets should be named `wi_data`, `mn_data`, and `mi_data`.
+Awesome, time for your first code changes :pencil2:.
 
-Hint: the `get_sites_data()` function already exists and shouldn't need modification. You can find it by browsing the repo or by hitting **Ctrl-.** in RStudio and then searching for "get_sites_data".
+Write three **scipiper** targets in *remake.yml* to apply `get_sites_data()` to each state in `states`.
+* The targets should be named `wi_data`, `mn_data`, and `mi_data`.
+* Modify the `sources` section of *remake.yml* as needed to make your pipeline executable.
+* Modify the `all` target so that your new targets will be built by default.
+* Test it: You should be able to run `scmake()` with no arguments to get everything built.
 
-<hr><h3 align="center">Open a PR to merge the "three-states" branch into "master" - I'll respond in that PR.</h3>
+:bulb: Hint: the `get_sites_data()` function already exists and shouldn't need modification. You can find it by browsing the repo or by hitting **Ctrl-.** in RStudio and then searching for "get_sites_data".
 
+When you're satisfied with your code, open a PR to merge the "three-states" branch into "master". In the description box for that PR, include a screenshot or transcript of your console session where the targets get built.
+
+<hr><h3 align="center">I'll respond in your new PR. You may need to refresh the PR page to see my response.</h3>

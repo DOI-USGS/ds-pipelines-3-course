@@ -29,10 +29,13 @@ steps:
       - type: createIssue
         title: Meet the example problem
         body: 10-no-table.md
+        comments:
+          - zz-start-branch.md
+        data:
+          branch: three-states
         store:
           url_10: '{{ result.data.html_url }}'
-      - type: respond
-        with: zz-start-branch.md
+          issue_num_10: '{{ result.data.number }}'
   - title: Meet the example problem
     description: Prepare to download and plot information about USGS's oldest streamflow gages
     link: '{{ store.url_10 }}'
@@ -58,13 +61,33 @@ steps:
     actions:
       - type: respond
         with: 13-state-by-state.md
+        store:
+          url_13: '{{ result.data.html_url }}'
   - title: Add data targets for each state
     description: Create a many-task remakefile the hard way
-    link: '{{ store.no_table_url }}'
-    event: issues.closed
+    link: '{{ store.url_13 }}'
+    event: pull_request.opened
     actions:
       - type: respond
+        with: 14-retro.md
+        data:
+          issue_num: '{{ store.issue_num_10 }}'
+        store:
+          url_14: '{{ result.data.html_url }}'
+  - title: Get your PR reviewed
+    description: Run your changes and questions by a human reviewer
+    link: '{{ store.url_14 }}'
+    event: pull_request.closed
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+        else:
+          - type: respond
+            with: zz-merge-me.md
+      - type: respond
         with: zz-next-issue.md
+      - type: closeIssue
+        issue: '{{ store.issue_num_10 }}'
       - type: createIssue
         title: >-
           What's next
