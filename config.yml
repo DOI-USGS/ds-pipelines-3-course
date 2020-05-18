@@ -36,7 +36,7 @@ steps:
   - title: Meet the example problem
     description: Prepare to download and plot information about USGS's oldest streamflow gages
     link: '{{ store.url_10 }}'
-    event: issue_comment.created
+    event: issues.assigned
     actions:
       - type: respond
         with: 11-explore-pipeline.md
