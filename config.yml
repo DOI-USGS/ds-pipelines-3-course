@@ -112,10 +112,10 @@ steps:
           branch: '{{ store.branch_20 }}'
         store:
           url_21: '{{ result.data.html_url }}'
-#      - type: createFile
-#        filename: 21-123_state_tasks.R
-#        new_name: 123_state_tasks.R
-#        branch: '{{ store.branch_20 }}'
+      - type: createFile
+        filename: 21-123_state_tasks.R
+        new_name: 123_state_tasks.R
+        branch: '{{ store.branch_20 }}'
 #  - title: Plan rows and columns
 #    description: Define the rows and columns of your task table
 #    link: '{{ store.url_21 }}'
