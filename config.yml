@@ -116,6 +116,7 @@ steps:
         left: '%payload.ref%'
         operator: ===
         right: task-table
+        else:
           - type: respond
             with: zz-oops-no-branch.md
             data:
