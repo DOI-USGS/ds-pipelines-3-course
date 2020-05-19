@@ -121,11 +121,11 @@ steps:
         left: '%payload.ref%'
         operator: ===
         right: task-table
-#        else:
-#          - type: respond
-#            with: zz-oops-no-branch.md
-#            data:
-#              branch: task-table
+        else:
+         - type: respond
+            with: zz-oops-no-branch.md
+            data:
+              branch: task-table
 #      - type: respond
 #        with: zz-next-issue.md
       - type: closeIssue
