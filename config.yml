@@ -111,9 +111,11 @@ steps:
           branch_20: 'task-table'
         data:
           branch: task-table
-#  - title: Task tables
-#    description: "Learn about scipiper's task table concept and implementation"
-#    link: '{{ store.url_20 }}'
+  - title: Task tables
+    description: "Learn about scipiper's task table concept and implementation"
+    link: '{{ store.url_20 }}'
+    event: issue_comment.created
+    actions:
 #    event: create
 #    actions:
 #      - type: gate
