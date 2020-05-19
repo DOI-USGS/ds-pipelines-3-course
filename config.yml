@@ -122,7 +122,7 @@ steps:
         operator: ===
         right: task-table
         else:
-         - type: respond
+          - type: respond
             with: zz-oops-no-branch.md
             data:
               branch: task-table
