@@ -102,7 +102,7 @@ steps:
   - title: Task tables
     description: "Try out scipiper's task table concept and implementation"
     link: '{{ store.url_20 }}'
-    event: push
+    event: create
     actions:
 #      - type: gate
 #        left: '{{ payload.ref }}'
