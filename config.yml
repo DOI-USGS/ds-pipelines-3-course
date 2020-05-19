@@ -40,18 +40,8 @@ steps:
 #  - title: Meet the example problem
 #    description: Prepare to download and plot information about USGS's oldest streamflow gages
 #    link: '{{ store.url_10 }}'
-#    event: create
+#    event: issue_comment.created
 #    actions:
-#      - type: gate
-#        left: '%payload.ref%'
-#        operator: ===
-#        right: three-states
-#        else:
-#          - type: respond
-#            with: zz-wrong-branch.md
-#            issue: '{{ store.issue_num_20 }}'
-#            data:
-#              branch: three-states
 #      - type: respond
 #        with: 11-explore-pipeline.md
 #        store:
@@ -114,20 +104,8 @@ steps:
   - title: Task tables
     description: "Learn about scipiper's task table concept and implementation"
     link: '{{ store.url_20 }}'
-#    event: issue_comment.created
-#    actions:
-    event: create
+    event: issue_comment.created
     actions:
-      - type: gate
-        left: '%payload.ref%'
-        operator: ===
-        right: '{{ store.branch_20 }}'
-        else:
-          - type: respond
-            with: zz-wrong-branch.md
-            issue: '{{ store.issue_num_20 }}'
-            data:
-              branch: '{{ store.branch_20 }}'
       - type: respond
         with: 21-rows-columns.md
         data:

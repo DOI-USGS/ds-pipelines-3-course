@@ -11,4 +11,4 @@ git push -u origin {{ branch }}
 
 The first two lines aren't strictly necessary when you don't have any new branches, but it's a good habit to head back to `master` and sync with "origin" whenever you're transitioning between branches and/or PRs.
 
-<hr><h3 align="center">I'll respond when I detect that the "{{ branch }}" branch is set up and synced.</h3>
+<hr><h3 align="center">Comment on this issue once you've created and pushed the "{{ branch }}" branch.</h3>
