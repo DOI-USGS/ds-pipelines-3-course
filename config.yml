@@ -104,17 +104,19 @@ steps:
     link: '{{ store.url_20 }}'
     event: create
     actions:
-#      - type: gate
-#        left: '%payload.ref%'
-#        operator: ===
-#        right: task-table
-#        else:
-#          - type: respond
-#            with: zz-wrong-branch.md
-#            data:
-#              branch: task-table
+      - type: gate
+        left: '%payload.ref%'
+        operator: ===
+        right: task-table
+        else:
+          - type: respond
+            with: zz-wrong-branch.md
+            issue: '{{ store.issue_num_20 }}'
+            data:
+              branch: task-table
       - type: respond
         with: zz-next-issue.md
+        issue: '{{ store.issue_num_20 }}'
       - type: closeIssue
         issue: '{{ store.issue_num_20 }}'
       - type: createIssue
