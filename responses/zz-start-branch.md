@@ -1,4 +1,4 @@
-### :keyboard: Switch to a new branch
+### :keyboard: Activity: Switch to a new branch
 
 Before you edit any code, create a local branch called "{{ branch }}" and push that branch up to the remote location "origin" (which is the github host of your repository).
 

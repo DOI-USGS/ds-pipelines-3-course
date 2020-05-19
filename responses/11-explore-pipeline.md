@@ -1,4 +1,4 @@
-### :keyboard: Explore the starter pipeline
+### :keyboard: Activity: Explore the starter pipeline
 
 Without modifying any code, start by inspecting and running the existing data pipeline.
 
