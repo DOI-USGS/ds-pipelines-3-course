@@ -107,10 +107,19 @@ steps:
         left: '%payload.ref_type%'
         operator: ===
         right: 'branch'
+        else:
+          - type: respond
+            with: zz-oops-no-branch.md
+            data:
+              branch: branch
       - type: gate
         left: '%payload.ref%'
         operator: ===
         right: task-table
+          - type: respond
+            with: zz-oops-no-branch.md
+            data:
+              branch: task-table
       - type: respond
         with: zz-next-issue.md
       - type: closeIssue
