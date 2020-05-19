@@ -13,81 +13,95 @@ steps:
   - title: Get the big picture
     description: Recognize the unique demands of data-rich pipelines
     link: '{{ store.overview_issue_url }}'
-    event: issues.assigned
-    actions:
-      - type: respond
-        with: 01-setup-repo.md
-        store:
-          setup_repo_url: '{{ result.data.html_url }}'
-  - title: Set up your local repo
-    description: Git clone the repo to your computer
-    link: '{{ store.setup_repo_url }}'
+#    event: issues.assigned
+#    actions:
+#      - type: respond
+#        with: 01-setup-repo.md
+#        store:
+#          setup_repo_url: '{{ result.data.html_url }}'
+#  - title: Set up your local repo
+#    description: Git clone the repo to your computer
+#    link: '{{ store.setup_repo_url }}'
     event: issues.closed
     actions:
       - type: respond
         with: zz-next-issue.md
+#      - type: createIssue
+#        title: Meet the example problem
+#        body: 10-no-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: three-states
+#        store:
+#          url_10: '{{ result.data.html_url }}'
+#          issue_num_10: '{{ result.data.number }}'
+#  - title: Meet the example problem
+#    description: Prepare to download and plot information about USGS's oldest streamflow gages
+#    link: '{{ store.url_10 }}'
+#    event: issues.assigned
+#    actions:
+#      - type: respond
+#        with: 11-explore-pipeline.md
+#        store:
+#          url_11: '{{ result.data.html_url }}'
+#  - title: Explore the starter pipeline
+#    description: Inspect and run the existing pipeline
+#    link: '{{ store.url_11 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 12-explore-purrr.md
+#        store:
+#          url_12: '{{ result.data.html_url }}'
+#  - title: Spot the split-apply-combine
+#    description: 'Meet `purrr::map_df()`'
+#    link: '{{ store.url_12 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 13-state-by-state.md
+#        store:
+#          url_13: '{{ result.data.html_url }}'
+#  - title: Add data targets for each state
+#    description: Create a many-task remakefile the hard way
+#    link: '{{ store.url_13 }}'
+#    event: pull_request.opened
+#    actions:
+#      - type: respond
+#        with: 14-retro.md
+#        data:
+#          issue_num: '{{ store.issue_num_10 }}'
+#        store:
+#          url_14: '{{ result.data.html_url }}'
+#  - title: Get your PR reviewed
+#    description: Run your changes and questions by a human reviewer
+#    link: '{{ store.url_14 }}'
+#    event: pull_request.closed
+#    actions:
+#      - type: gate
+#        left: '%payload.pull_request.merged%'
+#        else:
+#          - type: respond
+#            with: zz-merge-me.md
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: closeIssue
+#        issue: '{{ store.issue_num_10 }}'
       - type: createIssue
-        title: Meet the example problem
-        body: 10-no-table.md
+        title: Task tables
+        body: 20-task-table.md
         comments:
           - zz-start-branch.md
         data:
-          branch: three-states
+          branch: task-table
         store:
-          url_10: '{{ result.data.html_url }}'
-          issue_num_10: '{{ result.data.number }}'
-  - title: Meet the example problem
-    description: Prepare to download and plot information about USGS's oldest streamflow gages
-    link: '{{ store.url_10 }}'
-    event: issues.assigned
-    actions:
-      - type: respond
-        with: 11-explore-pipeline.md
-        store:
-          url_11: '{{ result.data.html_url }}'
-  - title: Explore the starter pipeline
-    description: Inspect and run the existing pipeline
-    link: '{{ store.url_11 }}'
-    event: issue_comment.created
-    actions:
-      - type: respond
-        with: 12-explore-purrr.md
-        store:
-          url_12: '{{ result.data.html_url }}'
-  - title: Spot the split-apply-combine
-    description: 'Meet `purrr::map_df()`'
-    link: '{{ store.url_12 }}'
-    event: issue_comment.created
-    actions:
-      - type: respond
-        with: 13-state-by-state.md
-        store:
-          url_13: '{{ result.data.html_url }}'
-  - title: Add data targets for each state
-    description: Create a many-task remakefile the hard way
-    link: '{{ store.url_13 }}'
-    event: pull_request.opened
-    actions:
-      - type: respond
-        with: 14-retro.md
-        data:
-          issue_num: '{{ store.issue_num_10 }}'
-        store:
-          url_14: '{{ result.data.html_url }}'
-  - title: Get your PR reviewed
-    description: Run your changes and questions by a human reviewer
-    link: '{{ store.url_14 }}'
-    event: pull_request.closed
-    actions:
-      - type: gate
-        left: '%payload.pull_request.merged%'
-        else:
-          - type: respond
-            with: zz-merge-me.md
-      - type: respond
-        with: zz-next-issue.md
-      - type: closeIssue
-        issue: '{{ store.issue_num_10 }}'
+          url_20: '{{ result.data.html_url }}'
+          issue_num_20: '{{ result.data.number }}'
+  - title: Task tables
+    description: "Try out scipiper's task table concept and implementation"
+    link: '{{ issue_20 }}'
+    event: issues.closed
       - type: createIssue
         title: >-
           What's next
