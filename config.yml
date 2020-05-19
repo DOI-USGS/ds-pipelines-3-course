@@ -126,12 +126,12 @@ steps:
 #            issue: '{{ store.issue_num_20 }}'
 #            data:
 #              branch: '{{ store.branch_20 }}'
-      - type: respond
-        with: 21-rows-columns.md
-        data:
-          branch: '{{ store.branch_20 }}'
-        store:
-          url_21: '{{ result.data.html_url }}'
+#      - type: respond
+#        with: 21-rows-columns.md
+#        data:
+#          branch: '{{ store.branch_20 }}'
+#        store:
+#          url_21: '{{ result.data.html_url }}'
 #      - type: createFile
 #        filename: 21-123_state_tasks.R
 #        new_name: 123_state_tasks.R
