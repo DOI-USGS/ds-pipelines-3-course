@@ -119,23 +119,23 @@ steps:
       - type: gate
         left: '%payload.ref%'
         operator: ===
-        right: '{{ branch_20 }}'
+        right: '{{ store.branch_20 }}'
         else:
           - type: respond
             with: zz-wrong-branch.md
             issue: '{{ store.issue_num_20 }}'
             data:
-              branch: '{{ branch_20 }}'
+              branch: '{{ store.branch_20 }}'
       - type: respond
         with: 21-rows-columns.md
         data:
-          branch: '{{ branch_20 }}'
+          branch: '{{ store.branch_20 }}'
         store:
           url_21: '{{ result.data.html_url }}'
       - type: createFile
         filename: 21-123_state_tasks.R
         new_name: 123_state_tasks.R
-        branch: '{{ branch_20 }}'
+        branch: '{{ store.branch_20 }}'
   - title: Plan rows and columns
     description: Define the rows and columns of your task table
     link: '{{ store.url_21 }}'
