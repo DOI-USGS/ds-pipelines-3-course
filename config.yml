@@ -89,21 +89,21 @@ steps:
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_10 }}'
 
-      - type: createIssue
-        title: Task tables
-        body: 20-task-table.md
-        comments:
-          - zz-start-branch.md
-        data:
-          branch: task-table
-        store:
-          url_20: '{{ result.data.html_url }}'
-          issue_num_20: '{{ result.data.number }}'
-  - title: Task tables
-    description: "Try out scipiper's task table concept and implementation"
-    link: '{{ store.url_20 }}'
-    event: create
-    actions:
+#      - type: createIssue
+#        title: Task tables
+#        body: 20-task-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: task-table
+#        store:
+#          url_20: '{{ result.data.html_url }}'
+#          issue_num_20: '{{ result.data.number }}'
+#  - title: Task tables
+#    description: "Try out scipiper's task table concept and implementation"
+#    link: '{{ store.url_20 }}'
+#    event: create
+#    actions:
 #      - type: gate
 #        left: '%payload.ref%'
 #        operator: ===
@@ -113,10 +113,10 @@ steps:
 #            with: zz-wrong-branch.md
 #            data:
 #              branch: task-table
-      - type: respond
-        with: zz-next-issue.md
-      - type: closeIssue
-        issue: '{{ store.issue_num_20 }}'
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: closeIssue
+#        issue: '{{ store.issue_num_20 }}'
       - type: createIssue
         title: >-
           What's next
