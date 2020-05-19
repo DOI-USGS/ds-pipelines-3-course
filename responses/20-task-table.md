@@ -8,7 +8,7 @@ In this issue we'll fix those inefficiencies by adopting the *task table* approa
 
 A **task table** is a concept: the idea is that you can think of a *split-apply-combine* operation in terms of a table: each row of the table is a split (a **task**) and each column is an apply activity (a **step**). In the example analysis for this course, each row is a monitoring site and the first column contains calls to `get_site_data()` for that site. Later we'll create additional steps for tallying and plotting observations for each site. A **task step** is a cell within this conceptual table.
 
-![Task table](/responses/20-task-table.png)
+![Task table](https://user-images.githubusercontent.com/12039957/82352239-b1e1d680-99cb-11ea-927c-c68aee05ca47.png)
 
 A task table is "conceptual" because it doesn't exist as a table in R. We implement it in two ways: as a **task plan**, which is a nested R list defining all the tasks and steps, and as a **task remakefile**, which is an automatically generated scipiper YAML file much like the `remake.yml` you're already working with.
 
