@@ -119,7 +119,7 @@ steps:
       - type: gate
         left: '%payload.ref%'
         operator: ===
-        right: '{{ store.branch_20 }}'
+        right: '%store.branch_20%'
         else:
           - type: respond
             with: zz-wrong-branch.md
