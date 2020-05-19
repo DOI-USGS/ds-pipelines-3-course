@@ -88,39 +88,41 @@ steps:
 #        with: zz-next-issue.md
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_10 }}'
-      - type: createIssue
-        title: Task tables
-        body: 20-task-table.md
-        comments:
-          - zz-start-branch.md
-        data:
-          branch: task-table
-        store:
-          url_20: '{{ result.data.html_url }}'
-          issue_num_20: '{{ result.data.number }}'
-  - title: Task tables
-    description: "Try out scipiper's task table concept and implementation"
-    link: '{{ store.url_20 }}'
-    event: create
-    actions:
-      - type: gate
-        left: '%payload.ref_type%'
-        operator: ===
-        right: 'branch'
-        else:
-          - type: respond
-            with: zz-oops-no-branch.md
-            data:
-              branch: branch
-      - type: gate
-        left: '%payload.ref%'
-        operator: ===
-        right: task-table
-        else:
-          - type: respond
-            with: zz-oops-no-branch.md
-            data:
-              branch: task-table
+
+#      - type: createIssue
+#        title: Task tables
+#        body: 20-task-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: task-table
+#        store:
+#          url_20: '{{ result.data.html_url }}'
+#          issue_num_20: '{{ result.data.number }}'
+#  - title: Task tables
+#    description: "Try out scipiper's task table concept and implementation"
+#    link: '{{ store.url_20 }}'
+#    event: create
+
+#    actions:
+#      - type: gate
+#        left: '%payload.ref_type%'
+#        operator: ===
+#        right: 'branch'
+#        else:
+#          - type: respond
+#            with: zz-oops-no-branch.md
+#            data:
+#              branch: branch
+#      - type: gate
+#        left: '%payload.ref%'
+#        operator: ===
+#        right: task-table
+#        else:
+#          - type: respond
+#            with: zz-oops-no-branch.md
+#            data:
+#              branch: task-table
       - type: respond
         with: zz-next-issue.md
       - type: closeIssue
