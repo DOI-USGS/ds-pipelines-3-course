@@ -102,8 +102,12 @@ steps:
   - title: Task tables
     description: "Try out scipiper's task table concept and implementation"
     link: '{{ store.url_20 }}'
-    event: create
+    event: push
     actions:
+#      - type: gate
+#        left: '{{ payload.ref }}'
+#        operator: ===
+#        right: 'refs/heads/task-table'
 #      - type: gate
 #        left: '%payload.ref_type%'
 #        operator: ===
@@ -122,8 +126,8 @@ steps:
 #            with: zz-oops-no-branch.md
 #            data:
 #              branch: task-table
-      - type: respond
-        with: zz-next-issue.md
+#      - type: respond
+#        with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_20 }}'
       - type: createIssue
