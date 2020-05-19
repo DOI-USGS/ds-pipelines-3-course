@@ -117,10 +117,10 @@ steps:
 #            with: zz-oops-no-branch.md
 #            data:
 #              branch: branch
-#      - type: gate
-#        left: '%payload.ref%'
-#        operator: ===
-#        right: task-table
+      - type: gate
+        left: '%payload.ref%'
+        operator: ===
+        right: task-table
 #        else:
 #          - type: respond
 #            with: zz-oops-no-branch.md
