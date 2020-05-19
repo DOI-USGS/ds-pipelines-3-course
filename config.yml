@@ -27,31 +27,31 @@ steps:
     actions:
       - type: respond
         with: zz-next-issue.md
-      - type: createIssue
-        title: Meet the example problem
-        body: 10-no-table.md
-        comments:
-          - zz-start-branch.md
-        data:
-          branch: three-states
-        store:
-          url_10: '{{ result.data.html_url }}'
-          issue_num_10: '{{ result.data.number }}'
-  - title: Meet the example problem
-    description: Prepare to download and plot information about USGS's oldest streamflow gages
-    link: '{{ store.url_10 }}'
-    event: create
-    actions:
-      - type: gate
-        left: '%payload.ref%'
-        operator: ===
-        right: three-states
-        else:
-          - type: respond
-            with: zz-wrong-branch.md
-            issue: '{{ store.issue_num_20 }}'
-            data:
-              branch: three-states
+#      - type: createIssue
+#        title: Meet the example problem
+#        body: 10-no-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: three-states
+#        store:
+#          url_10: '{{ result.data.html_url }}'
+#          issue_num_10: '{{ result.data.number }}'
+#  - title: Meet the example problem
+#    description: Prepare to download and plot information about USGS's oldest streamflow gages
+#    link: '{{ store.url_10 }}'
+#    event: create
+#    actions:
+#      - type: gate
+#        left: '%payload.ref%'
+#        operator: ===
+#        right: three-states
+#        else:
+#          - type: respond
+#            with: zz-wrong-branch.md
+#            issue: '{{ store.issue_num_20 }}'
+#            data:
+#              branch: three-states
 #      - type: respond
 #        with: 11-explore-pipeline.md
 #        store:
@@ -105,26 +105,42 @@ steps:
         body: 20-task-table.md
         comments:
           - zz-start-branch.md
-        data:
-          branch: task-table
         store:
           url_20: '{{ result.data.html_url }}'
           issue_num_20: '{{ result.data.number }}'
+          branch_20: 'task-table'
+        data:
+          branch: task-table
   - title: Task tables
-    description: "Try out scipiper's task table concept and implementation"
+    description: "Learn about scipiper's task table concept and implementation"
     link: '{{ store.url_20 }}'
     event: create
     actions:
       - type: gate
         left: '%payload.ref%'
         operator: ===
-        right: task-table
+        right: '{{ branch_20 }}'
         else:
           - type: respond
             with: zz-wrong-branch.md
             issue: '{{ store.issue_num_20 }}'
             data:
-              branch: task-table
+              branch: '{{ branch_20 }}'
+      - type: respond
+        with: 21-rows-columns.md
+        data:
+          branch: '{{ branch_20 }}'
+        store:
+          url_21: '{{ result.data.html_url }}'
+      - type: createFile
+        filename: 21-123_state_tasks.R
+        new_name: 123_state_tasks.R
+        branch: '{{ branch_20 }}'
+  - title: Plan rows and columns
+    description: Define the rows and columns of your task table
+    link: '{{ store.url_21 }}'
+    event: issue_comment.created
+    actions:
       - type: respond
         with: zz-next-issue.md
         issue: '{{ store.issue_num_20 }}'
