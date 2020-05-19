@@ -102,6 +102,7 @@ steps:
     description: "Try out scipiper's task table concept and implementation"
     link: '{{ issue_20 }}'
     event: issues.closed
+    actions:
       - type: createIssue
         title: >-
           What's next
