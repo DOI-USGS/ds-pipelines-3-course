@@ -10,7 +10,7 @@ do_state_tasks <- function(oldest_active_sites) {
     # TODO: Make commands that call get_site_data()
   )
 
-  # Return some diagnostic information to the parent remake file
+  # Return test results to the parent remake file
   return(list(
     example_target_name = download_step$target_name(task_name='WI', step_name='download'),
     example_command = download_step$command(task_name='WI', step_name='download')

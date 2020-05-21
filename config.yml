@@ -90,6 +90,10 @@ steps:
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_10 }}'
 
+      - type: createFile
+        filename: 21-123_state_tasks.R
+        new_name: 123_state_tasks.R
+        branch: master
       - type: createIssue
         title: Task tables
         body: 20-task-table.md
@@ -112,20 +116,34 @@ steps:
           branch: '{{ store.branch_20 }}'
         store:
           url_21: '{{ result.data.html_url }}'
-      - type: createFile
-        filename: 21-123_state_tasks.R
-        new_name: 123_state_tasks.R
-        branch: '{{ store.branch_20 }}'
-#  - title: Plan rows and columns
-#    description: Define the rows and columns of your task table
-#    link: '{{ store.url_21 }}'
-#    event: issue_comment.created
-#    actions:
-#      - type: respond
-#        with: zz-next-issue.md
-#        issue: '{{ store.issue_num_20 }}'
-#      - type: closeIssue
-#        issue: '{{ store.issue_num_20 }}'
+  - title: Plan rows and columns
+    description: Define the rows and columns of your task table
+    link: '{{ store.url_21 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 22-task-plan.md
+        store:
+          url_22: '{{ result.data.html_url }}'
+  - title: Make the task plan
+    description: Create an R list object describing your plan
+    link: '{{ store.url_22 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 23-task-remakefile.md
+        store:
+          url_23: '{{ result.data.html_url }}'
+  - title: Make the task remakefile
+    description: Write a YAML file describing your plan
+    link: '{{ store.url_23 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: zz-next-issue.md
+        issue: '{{ store.issue_num_20 }}'
+      - type: closeIssue
+        issue: '{{ store.issue_num_20 }}'
       - type: createIssue
         title: >-
           What's next
