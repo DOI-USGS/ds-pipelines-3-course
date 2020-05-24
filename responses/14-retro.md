@@ -1,6 +1,6 @@
 Congrats, your PR is open! 
 
-Did you have to run `scmake()` more than once to get the build to complete? I set up the repo so that would be likely. Note that you *didn't* have to change your code or figure out which targets failed before calling `scmake()` again - that's the beauty of a formal data pipeline. But you *did* (probably) have to call `scmake()` several times...that's the inefficiency that we'll be tackling in the next issue. Stay tuned! :video:
+Did you have to run `scmake()` more than once to get the build to complete? I set up the repo so that would be likely. Note that you *didn't* have to change your code or figure out which targets failed before calling `scmake()` again - that's the beauty of a formal data pipeline. But you *did* (probably) have to call `scmake()` several times...that's the inefficiency that we'll be tackling in the next issue. Stay tuned! :movie_camera:
 
 ### :keyboard: Get this PR reviewed
 
