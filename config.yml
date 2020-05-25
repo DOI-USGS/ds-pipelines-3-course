@@ -191,15 +191,15 @@ steps:
     link: '{{ store.url_30 }}'
     event: issue_comment.created
     actions:
-#      - type: respond
-#        with: 31-go-bananas.md
-#        store:
-#          url_31: '{{ result.data.html_url }}'
-#  - title: Create an inventory splitter
-#    description: Split the inventory into separate state-specific files
-#    link: '{{ store.url_31 }}'
-#    event: issue_comment.created
-#    actions:
+      - type: respond
+        with: 31-go-bananas.md
+        store:
+          url_31: '{{ result.data.html_url }}'
+  - title: Create an inventory splitter
+    description: Split the inventory into separate state-specific files
+    link: '{{ store.url_31 }}'
+    event: issue_comment.created
+    actions:
 #      - type: respond
 #        with: 32-connect-splitter.md
 #        store:
