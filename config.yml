@@ -175,7 +175,6 @@ steps:
             with: zz-merge-me.md
       - type: respond
         with: zz-next-issue.md
-        issue: '{{ store.issue_num_20 }}'
       - type: closeIssue
         issue: '{{ store.issue_num_20 }}'
       - type: createIssue

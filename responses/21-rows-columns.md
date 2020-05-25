@@ -34,10 +34,10 @@ $example_command
 You can call this same command as you're revising code in the next couple of steps to check your progress.
 
 #### Define the rows
-Define the rows by assigning a vector of state names to `task_names`. Use the argument already being passed into the `do_state_tasks()` function. You won't need much code.
+Define the rows by creating a vector of state names where it says `# TODO: DEFINE A VECTOR OF TASK NAMES HERE`. Use information from `oldest_active_sites`, which is already an argument to the `do_state_tasks()` function. You won't need much code.
 
 #### Define the columns
-Modify the existing column definition for `download_step` so that it pulls the data from NWIS for each state's oldest monitoring site:
+Modify the existing column definition for `download_step` so that it pulls the data from NWIS for each state's oldest monitoring site, referring to `?create_task_step` for help on the syntax.
 
 1. Modify the `target_name` argument to `create_task_step()` so that each target (**task-step**) within this column will get a name like `WI_data`. The `target_name` argument should be a function of the form `function(task_name, step_name, ...) {}` where the body of the function constructs and returns a string for each combination of `task_name` (e.g., 'WI') and `step_name` (where we've already defined this step name to be 'download'). You can ignore the `step_name` this time. When it comes time to create the task plan (the R list), this function will get applied to each value of `task_name` in a vector of `task_names`.
 

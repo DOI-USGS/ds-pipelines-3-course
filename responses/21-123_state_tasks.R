@@ -1,7 +1,7 @@
 do_state_tasks <- function(oldest_active_sites) {
 
   # Define task table rows
-  task_names # TODO: DEFINE A VECTOR OF TASK NAMES HERE
+  # TODO: DEFINE A VECTOR OF TASK NAMES HERE
 
   # Define task table columns
   download_step <- create_task_step(
