@@ -161,10 +161,11 @@ steps:
         with: zz-get-reviewed.md
         data:
           issue: '{{ store.issue_num_20 }}'
-        store: '{{ payload.issue.number }}'
+        store:
+          pr_25: '{{ payload.pull_request.number }}'
   - title: Merge your second PR
     description: Respond to comments and then merge your PR
-    link: '{{ store.url_25 }}'
+    link: '{{ store.pr_25 }}'
     event: pull_request.closed
     actions:
       - type: gate
