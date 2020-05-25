@@ -19,7 +19,7 @@ And then we could insert an initial task table step where we pulled out that sta
   WI_data:
     command: get_site_data(sites_info=WI_inventory, state=I('WI'), parameter=parameter)
 ```
-...but ugh, what a lot of text to add for such a simple operation! Also, suppose that sites_info was a file that took a long time to read in - we've encountered cases like this for large spatial data files, for example - you'd have to re-open the file for each and every call to `get_state_inventory()`, which would be excruciatingly slow for many states.
+...but ugh, what a lot of text to add for such a simple operation! Also, suppose that `sites_info` was a file that took a long time to read in - we've encountered cases like this for large spatial data files, for example - you'd have to re-open the file for each and every call to `get_state_inventory()`, which would be excruciatingly slow for a many-state pipeline.
 
 Fortunately, there's a better way.
 

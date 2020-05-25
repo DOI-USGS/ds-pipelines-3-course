@@ -185,7 +185,7 @@ steps:
           issue_num_30: '{{ result.data.number }}'
           branch_30: 'splitter'
         data:
-          branch: '{{ branch_30 }}'
+          branch: splitter
   - title: Splitters
     description: 'Learn when and how to break the "one function, one output" rule'
     link: '{{ store.url_30 }}'
