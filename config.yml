@@ -191,44 +191,42 @@ steps:
     link: '{{ store.url_30 }}'
     event: issue_comment.created
     actions:
-      - type: respond
-        with: 31-go-bananas.md
-        store:
-          url_31: '{{ result.data.html_url }}'
-  - title: Create an inventory splitter
-    description: Split the inventory into separate state-specific files
-    link: '{{ store.url_31 }}'
-    event: issue_comment.created
-    actions:
-      - type: respond
-        with: 32-connect-splitter.md
-        store:
-          url_32: '{{ result.data.html_url }}'
-  - title: Add the splitter to the main pipeline
-    description: Note two more problems; fix one
-    link: '{{ store.url_32 }}'
-    event: pull_request.opened
-    actions:
-      - type: respond
-        with: zz-get-reviewed.md
-        data:
-          issue: '{{ store.issue_num_30 }}'
-        store:
-          pr_32: '{{ payload.pull_request.number }}'
-  - title: Merge your second PR
-    description: Respond to comments and then merge your PR
-    link: '{{ store.pr_32 }}'
-    event: pull_request.closed
-    actions:
-      - type: gate
-        left: '{{ payload.pull_request.merged }}'
-        else:
-          - type: respond
-            with: zz-merge-me.md
-      - type: respond
-        with: zz-next-issue.md
+#      - type: respond
+#        with: 31-go-bananas.md
+#        store:
+#          url_31: '{{ result.data.html_url }}'
+#  - title: Create an inventory splitter
+#    description: Split the inventory into separate state-specific files
+#    link: '{{ store.url_31 }}'
 #    event: issue_comment.created
 #    actions:
+#      - type: respond
+#        with: 32-connect-splitter.md
+#        store:
+#          url_32: '{{ result.data.html_url }}'
+#  - title: Add the splitter to the main pipeline
+#    description: Note two more problems; fix one
+#    link: '{{ store.url_32 }}'
+#    event: pull_request.opened
+#    actions:
+#      - type: respond
+#        with: zz-get-reviewed.md
+#        data:
+#          issue: '{{ store.issue_num_30 }}'
+#        store:
+#          pr_32: '{{ payload.pull_request.number }}'
+#  - title: Merge your second PR
+#    description: Respond to comments and then merge your PR
+#    link: '{{ store.pr_32 }}'
+#    event: pull_request.closed
+#    actions:
+#      - type: gate
+#        left: '{{ payload.pull_request.merged }}'
+#        else:
+#          - type: respond
+#            with: zz-merge-me.md
+#      - type: respond
+#        with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_30 }}'
       - type: createIssue
