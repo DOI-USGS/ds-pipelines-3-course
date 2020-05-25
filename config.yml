@@ -209,24 +209,24 @@ steps:
     link: '{{ store.url_32 }}'
     event: pull_request.opened
     actions:
-#      - type: respond
-#        with: zz-get-reviewed.md
-#        data:
-#          issue: '{{ store.issue_num_30 }}'
-#        store:
-#          pr_32: '{{ payload.pull_request.number }}'
-#  - title: Merge your second PR
-#    description: Respond to comments and then merge your PR
-#    link: '{{ store.pr_32 }}'
-#    event: pull_request.closed
-#    actions:
-#      - type: gate
-#        left: '{{ payload.pull_request.merged }}'
-#        else:
-#          - type: respond
-#            with: zz-merge-me.md
-#      - type: respond
-#        with: zz-next-issue.md
+      - type: respond
+        with: zz-get-reviewed.md
+        data:
+          issue: '{{ store.issue_num_30 }}'
+        store:
+          pr_32: '{{ payload.pull_request.number }}'
+  - title: Merge your third PR
+    description: Respond to comments and then merge your PR
+    link: '{{ store.pr_32 }}'
+    event: pull_request.closed
+    actions:
+      - type: gate
+        left: '{{ payload.pull_request.merged }}'
+        else:
+          - type: respond
+            with: zz-merge-me.md
+      - type: respond
+        with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_30 }}'
       - type: createIssue
