@@ -1,10 +1,12 @@
+To get you started with coding, I've added a new file to the master branch (which you should have already pulled into your "{{ branch }}" branch) called *123_state_tasks.R*.
+
 ### Design decisions
 
-To get you started with coding, I've added a new file to the master branch (which you should have already pulled into your "{{ branch }}" branch) called *123_state_tasks.R*. Let's briefly discuss this file:
+Before we get to editing, let's briefly discuss this file:
 
-* Why an R script? We've experimented with several ways of coding up task tables in past projects, and we've settled on a pattern where we wrap everything needed for a task table into a single R function that can be called to generate a single target in the top-level *remake.yml*. The alternative would be to make separate **scipiper** targets for the task plan, the task makefile, and the task table output, but in practice this has turned out to be inconvenient especially for team projects where we only want to devote one computer and one person to running the tasks within a task table. You'll learn more about this in the next pipelines course. 
+* Why an R script? Well, we've experimented with several ways of coding up task tables in past projects, and we've settled on a pattern where we wrap everything needed for a task table into a single R function (in this script) that can be called to generate a single target in the top-level *remake.yml*. The alternative would be to make separate **scipiper** targets for the task plan, the task makefile, and the task table output, but in practice this has turned out to be inconvenient, especially for team projects where we only want one person to run the tasks within a task table. You'll learn more about this in the "Shared-cache pipelines" course.
 
-* Why *123*, and why isn't this file in a phase-specific `src` folder? Well, by the end of this course, we'll be doing data fetching, processing, and visualization steps for each state (the download, tally, and plot steps in the diagram at the top of this issue). Because we made the design decision to separate our workflow phases into *1_fetch*, *2_process*, and *3_visualize*, this task-table script crosses those three phases. Hence the *123*, and hence the decision to keep this file at the top level rather than including it within just one of the three phases. Note that this isn't the only way we could have gone - we could have defined phases *1_inventory*, *2_statewise*, and *3_summarize* instead, then moved all the state-by-state code (including this file) into the second phase - but I didn't think "statewise" would be sufficiently clear to newcomers, and so here we are. This is the kind of pipelining decision we are frequently confronted with - choose wisely, but also enjoy the chance to be creative!
+* Why "*123*"", and why isn't this file in a phase-specific *src* folder? Well, by the end of this course, we'll be doing data fetching, processing, and visualization steps for each state (the download, tally, and plot steps in the diagram at the top of this issue). Because we made the design decision to separate our workflow phases into *1_fetch*, *2_process*, and *3_visualize*, this task-table script crosses those three phases. Hence the "*123*", and hence the decision to keep this file at the top level rather than including it within just one of the three phases. Note that this isn't the only way we could have gone - we could have defined phases *1_inventory*, *2_statewise*, and *3_summarize* instead, then moved all the state-by-state code (including this file) into the second phase - but I didn't think "*statewise*" would be sufficiently clear to newcomers, and so here we are. This is the kind of pipelining decision we are frequently confronted with - choose wisely, but also enjoy the chance to be creative!
 
 With that intro out of the way, let's get going on this task table already!
 
@@ -18,7 +20,7 @@ Connect this starter function to the `remake.yml` file. It has well-formed (albe
 ```yml
   # TODO: PULL SITE DATA HERE
   state_tasks:
-    command: do_site_tasks(oldest_active_sites)
+    command: do_state_tasks(oldest_active_sites)
 ```
 2. Add "123_state_tasks.R" to the `sources` section of `remake.yml`.
 3. Make sure the connection works by calling `print(scmake('state_tasks'))`. You should see 
