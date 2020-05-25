@@ -6,7 +6,7 @@ _Q: 2. Add `'IL'` to the `states` target. Then call `scmake()` again. It builds 
 
 A: It built `WI_data`, `MN_data`, and `MI_data` again even though there was no need to download those files again. This happened because those three targets each depend on `oldest_active_sites`, the inventory object, and that object changed to include information about a gage in Illinois. It would be ideal if each task target only depended on exactly the values that determine whether the data need to be downloaded again.
 
-_Q: 3. Make small changes to the `get_site_data()` function: change `if(runif(1) < 0.5)` to `if(runif(1) < 0.2)` and change `Sys.sleep(2)` to `Sys.sleep(0.5)`. Then call `scmake()` again. What's wrong with the output you see? Can you guess why this is happening?_
+_Q: 3. Make a small change to the `get_site_data()` function: change `Sys.sleep(2)` to `Sys.sleep(0.5)`. Then call `scmake()` again. What's wrong with the output you see? Can you guess why this is happening?_
 
 A: It didn't rebuild anything, even though the `get_site_data()` function changed. The change we made doesn't actually change the output files from this function, but **scipiper** doesn't know that; it should have rebuild all of the `_data` targerts. This happened because `scmake()` looks to *remake.yml* by default, and at that level, there's no indication that the `state_tasks` target depends on the definition of the `get_site_data()` function.
 
