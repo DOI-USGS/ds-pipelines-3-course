@@ -200,15 +200,15 @@ steps:
     link: '{{ store.url_31 }}'
     event: issue_comment.created
     actions:
-#      - type: respond
-#        with: 32-connect-splitter.md
-#        store:
-#          url_32: '{{ result.data.html_url }}'
-#  - title: Add the splitter to the main pipeline
-#    description: Note two more problems; fix one
-#    link: '{{ store.url_32 }}'
-#    event: pull_request.opened
-#    actions:
+      - type: respond
+        with: 32-connect-splitter.md
+        store:
+          url_32: '{{ result.data.html_url }}'
+  - title: Add the splitter to the main pipeline
+    description: Note two more problems; fix one
+    link: '{{ store.url_32 }}'
+    event: pull_request.opened
+    actions:
 #      - type: respond
 #        with: zz-get-reviewed.md
 #        data:
