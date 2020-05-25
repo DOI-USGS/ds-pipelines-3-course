@@ -9,12 +9,13 @@ split_inventory <- function(summary_file, sites_info) {
 }
 ```
 
-- [ ] Add code to `split_inventory` to loop over the rows in oldest_active_sites and save each row to a file in the `1_fetch/tmp`. Each filename should have the form `inventory_[state].tsv` where `[state]` is the state abbreviation, e.g., `inventory_WI.tsv`. Based on the file suffix, you've probably already guessed that I'm suggesting you create files in tab-separated format. You can use the `readr::write_tsv` function for this purpose. _(Hey, we had a perfectly fine R object target with `oldest_active_sites`, and now we have to create a multitude of pesky little files just to support this whole splitting thing? Couldn't we just stick with R objects? Well...there probably is a way to split to objects, but we don't yet have a simple pattern established for it. If you develop an approach for this someday, your teammates will thank you for sharing it!)_
+- [ ] Add code to `split_inventory` to loop over the rows in oldest_active_sites and save each row to a file in the `1_fetch/tmp`. Each filename should have the form `inventory_[state].tsv` where `[state]` is the state abbreviation, e.g., `inventory_WI.tsv`. Based on the file suffix, you've probably already guessed that I'm suggesting you create files in tab-separated format. You can use the `readr::write_tsv` function for this purpose.
+
+  _(Hey, we had a perfectly fine R object target with `oldest_active_sites`, and now we have to create a multitude of pesky little files just to support this whole splitting thing? Couldn't we just stick with R objects? Well...there probably is a way to split to objects, but we don't yet have a simple pattern established for it. If you develop an approach for this someday, your teammates will thank you for sharing it!)_
 
 - [ ] Collect the filenames of the site-specific inventories in a vector within your function. Sort them alphabetically in preparation for writing the summary file. Sorting is a good habit especially in projects where the list of split-out files changes over time, because it makes it easier to visually scan the summary file in git/GitHub to see what has changed.
 
 - [ ] Write a summary file to the path given by the `summary_file` argument. The `scipiper::sc_indicate()` function will do this for you - just pass in the desired summary filename as the `ind_file` argument and your vector of filenames as the `data_file` argument.
-
 
 #### Test
 
