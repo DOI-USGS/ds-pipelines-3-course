@@ -40,7 +40,7 @@ That's it, you did it! For now, anyway.
 
 2. Add `'IL'` to the `states` target. Then call `scmake()` again. It builds `IL_data` for you right? Cool! But there's something inefficient happening here, too - what is it? Can you guess why this is happening?
 
-3. Make a small change to the `get_site_data()` function: change `Sys.sleep(2)` to `Sys.sleep(1)`. Then call `scmake()` again. What's wrong with the output you see? Can you guess why this is happening?
+3. Make small changes to the `get_site_data()` function: change `Sys.sleep(2)` to `Sys.sleep(1)` and change `if(runif(1) < 0.5)` to `if(runif(1) < 0.2)`. Then call `scmake()` again. What's wrong with the output you see? Can you guess why this is happening?
 
 Answer the questions from 2 and 3 above in a new comment on this issue.
 

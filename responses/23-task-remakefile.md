@@ -60,9 +60,9 @@ Now modify the new block. Refer to the `?create_task_makefile` documentation to 
 
 * Tell **scipiper** to connect the dependencies of targets in this remakefile to the targets in the main *remake.yml* file when executing the remakefile. Use the `include` argument for this purpose.
 
-* Tell **scipiper** to load the R script that defines the `get_sites_data()` function when executing the remakefile.
+* Tell **scipiper** to load the R script that defines the `get_site_data()` function when executing the remakefile.
 
-* Tell **scipiper** to load the packages needed to execute `get_sites_data()` function when executing the remakefile.
+* Tell **scipiper** to load the packages needed to execute `get_site_data()` function when executing the remakefile.
 
 * Leave `tickquote_combinee_objects = FALSE` and `finalize_funs = c()`. We'll explore these arguments later.
 

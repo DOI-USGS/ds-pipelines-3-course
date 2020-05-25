@@ -140,6 +140,39 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
+        with: 24-parent-target.md
+        store:
+          url_24: '{{ result.data.html_url }}'
+  - title: Connect to the main pipeline
+    description: Connect the task remakefile to remake.yml
+    link: '{{ store.url_24 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 25-problems-remain.md
+        store:
+          url_25: '{{ result.data.html_url }}'
+  - title: Strive for perfection
+    description: Note two more problems; fix one
+    link: '{{ store.url_25 }}'
+    event: pull_request.opened
+    actions:
+      - type: respond
+        with: zz-get-reviewed.md
+        data:
+          issue: '{{ store.issue_num_20 }}'
+        store: '{{ payload.issue.number }}'
+  - title: Merge your second PR
+    description: Respond to comments and then merge your PR
+    link: '{{ store.url_25 }}'
+    event: pull_request.closed
+    actions:
+      - type: gate
+        left: '{{ payload.pull_request.merged }}'
+        else:
+          - type: respond
+            with: zz-merge-me.md
+      - type: respond
         with: zz-next-issue.md
         issue: '{{ store.issue_num_20 }}'
       - type: closeIssue
