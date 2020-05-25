@@ -1,4 +1,4 @@
-### :keyboard: Spot the split-apply-combine
+### :keyboard: Activity: Spot the split-apply-combine
 
 Hey, did you notice that there's a *split-apply-combine* action happening in this repo already?
 

@@ -8,86 +8,176 @@ before:
     title: Recognize the unique demands of data-rich pipelines
     body: 00-overview.md
     store:
-      overview_issue_url: '{{ result.data.html_url }}'
+      url_00: '{{ result.data.html_url }}'
 steps:
   - title: Get the big picture
     description: Recognize the unique demands of data-rich pipelines
-    link: '{{ store.overview_issue_url }}'
-    event: issues.assigned
-    actions:
-      - type: respond
-        with: 01-setup-repo.md
-        store:
-          setup_repo_url: '{{ result.data.html_url }}'
-  - title: Set up your local repo
-    description: Git clone the repo to your computer
-    link: '{{ store.setup_repo_url }}'
+    link: '{{ store.url_00 }}'
+#    event: issues.assigned
+#    actions:
+#      - type: respond
+#        with: 01-setup-repo.md
+#        store:
+#          setup_repo_url: '{{ result.data.html_url }}'
+#  - title: Set up your local repo
+#    description: Git clone the repo to your computer
+#    link: '{{ store.setup_repo_url }}'
+
     event: issues.closed
     actions:
       - type: respond
         with: zz-next-issue.md
+#      - type: createIssue
+#        title: Meet the example problem
+#        body: 10-no-table.md
+#        comments:
+#          - zz-start-branch.md
+#        data:
+#          branch: three-states
+#        store:
+#          url_10: '{{ result.data.html_url }}'
+#          issue_num_10: '{{ result.data.number }}'
+#  - title: Meet the example problem
+#    description: Prepare to download and plot information about USGS's oldest streamflow gages
+#    link: '{{ store.url_10 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 11-explore-pipeline.md
+#        store:
+#          url_11: '{{ result.data.html_url }}'
+#  - title: Explore the starter pipeline
+#    description: Inspect and run the existing pipeline
+#    link: '{{ store.url_11 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 12-explore-purrr.md
+#        store:
+#          url_12: '{{ result.data.html_url }}'
+#  - title: Spot the split-apply-combine
+#    description: 'Meet `purrr::map_df()`'
+#    link: '{{ store.url_12 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 13-state-by-state.md
+#        store:
+#          url_13: '{{ result.data.html_url }}'
+#  - title: Add data targets for each state
+#    description: Create a many-task remakefile the hard way
+#    link: '{{ store.url_13 }}'
+#    event: pull_request.opened
+#    actions:
+#      - type: respond
+#        with: 14-retro.md
+#        data:
+#          issue_num: '{{ store.issue_num_10 }}'
+#        store:
+#          url_14: '{{ result.data.html_url }}'
+#  - title: Get your PR reviewed
+#    description: Run your changes and questions by a human reviewer
+#    link: '{{ store.url_14 }}'
+#    event: pull_request.closed
+#    actions:
+#      - type: gate
+#        left: '%payload.pull_request.merged%'
+#        else:
+#          - type: respond
+#            with: zz-merge-me.md
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: closeIssue
+#        issue: '{{ store.issue_num_10 }}'
+
+      - type: createFile
+        filename: 21-123_state_tasks.R
+        new_name: 123_state_tasks.R
+        branch: master
       - type: createIssue
-        title: Meet the example problem
-        body: 10-no-table.md
+        title: Task tables
+        body: 20-task-table.md
         comments:
           - zz-start-branch.md
+        store:
+          url_20: '{{ result.data.html_url }}'
+          issue_num_20: '{{ result.data.number }}'
+          branch_20: 'task-table'
         data:
-          branch: three-states
-        store:
-          url_10: '{{ result.data.html_url }}'
-          issue_num_10: '{{ result.data.number }}'
-  - title: Meet the example problem
-    description: Prepare to download and plot information about USGS's oldest streamflow gages
-    link: '{{ store.url_10 }}'
-    event: issues.assigned
-    actions:
-      - type: respond
-        with: 11-explore-pipeline.md
-        store:
-          url_11: '{{ result.data.html_url }}'
-  - title: Explore the starter pipeline
-    description: Inspect and run the existing pipeline
-    link: '{{ store.url_11 }}'
+          branch: task-table
+  - title: Task tables
+    description: "Learn about scipiper's task table concept and implementation"
+    link: '{{ store.url_20 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 12-explore-purrr.md
+        with: 21-rows-columns.md
+        data:
+          branch: '{{ store.branch_20 }}'
         store:
-          url_12: '{{ result.data.html_url }}'
-  - title: Spot the split-apply-combine
-    description: 'Meet `purrr::map_df()`'
-    link: '{{ store.url_12 }}'
+          url_21: '{{ result.data.html_url }}'
+  - title: Plan rows and columns
+    description: Define the rows and columns of your task table
+    link: '{{ store.url_21 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 13-state-by-state.md
+        with: 22-task-plan.md
         store:
-          url_13: '{{ result.data.html_url }}'
-  - title: Add data targets for each state
-    description: Create a many-task remakefile the hard way
-    link: '{{ store.url_13 }}'
+          url_22: '{{ result.data.html_url }}'
+  - title: Make the task plan
+    description: Create an R list object describing your plan
+    link: '{{ store.url_22 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 23-task-remakefile.md
+        store:
+          url_23: '{{ result.data.html_url }}'
+  - title: Make the task remakefile
+    description: Write a YAML file describing your plan
+    link: '{{ store.url_23 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 24-parent-target.md
+        store:
+          url_24: '{{ result.data.html_url }}'
+  - title: Connect to the main pipeline
+    description: Connect the task remakefile to remake.yml
+    link: '{{ store.url_24 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 25-problems-remain.md
+        store:
+          url_25: '{{ result.data.html_url }}'
+  - title: Strive for perfection
+    description: Note two more problems; fix one
+    link: '{{ store.url_25 }}'
     event: pull_request.opened
     actions:
       - type: respond
-        with: 14-retro.md
+        with: zz-get-reviewed.md
         data:
-          issue_num: '{{ store.issue_num_10 }}'
+          issue: '{{ store.issue_num_20 }}'
         store:
-          url_14: '{{ result.data.html_url }}'
-  - title: Get your PR reviewed
-    description: Run your changes and questions by a human reviewer
-    link: '{{ store.url_14 }}'
+          pr_25: '{{ payload.pull_request.number }}'
+  - title: Merge your second PR
+    description: Respond to comments and then merge your PR
+    link: '{{ store.pr_25 }}'
     event: pull_request.closed
     actions:
       - type: gate
-        left: '%payload.pull_request.merged%'
+        left: '{{ payload.pull_request.merged }}'
         else:
           - type: respond
             with: zz-merge-me.md
       - type: respond
         with: zz-next-issue.md
+        issue: '{{ store.issue_num_20 }}'
       - type: closeIssue
-        issue: '{{ store.issue_num_10 }}'
+        issue: '{{ store.issue_num_20 }}'
       - type: createIssue
         title: >-
           What's next

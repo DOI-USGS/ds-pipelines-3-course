@@ -1,4 +1,4 @@
-### :keyboard: Apply a downloading function to each state
+### :keyboard: Activity: Apply a downloading function to each state
 
 Awesome, time for your first code changes :pencil2:.
 
