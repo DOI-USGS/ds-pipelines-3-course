@@ -4,7 +4,7 @@ To help you assess your pipeline, here's what I would have put in that comment:
 
 _* an image from one of the new plots in *3_visualize/out*, and_
 
-![timeseries_WI](https://user-images.githubusercontent.com/12039957/82849810-a1e45e00-9ec7-11ea-90c7-72820c7a534f.png)
+![timeseries_WI](https://user-images.githubusercontent.com/12039957/82912759-71d6a280-9f3b-11ea-8e89-381ab350aeca.png)
 
 _* a printout of the first 10 lines of `IN_tally`_
 
