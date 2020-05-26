@@ -161,7 +161,7 @@ steps:
 #          issue: '{{ store.issue_num_20 }}'
 #        store:
 #          pr_25: '{{ payload.pull_request.number }}'
-#  - title: Merge your second PR
+#  - title: Merge your task remakefile PR
 #    description: Respond to comments and then merge your PR
 #    link: '{{ store.pr_25 }}'
 #    event: pull_request.closed
@@ -175,49 +175,122 @@ steps:
 #        with: zz-next-issue.md
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_20 }}'
+#      - type: createIssue
+#        title: Splitters
+#        body: 30-about-splitters.md
+#        comments:
+#          - zz-start-branch.md
+#        store:
+#          url_30: '{{ result.data.html_url }}'
+#          issue_num_30: '{{ result.data.number }}'
+#          branch_30: 'splitter'
+#        data:
+#          branch: splitter
+#  - title: Splitters
+#    description: 'Learn when and how to break the "one function, one output" rule'
+#    link: '{{ store.url_30 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 31-go-bananas.md
+#        store:
+#          url_31: '{{ result.data.html_url }}'
+#  - title: Create an inventory splitter
+#    description: Split the inventory into separate state-specific files
+#    link: '{{ store.url_31 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 32-connect-splitter.md
+#        store:
+#          url_32: '{{ result.data.html_url }}'
+#  - title: Add the splitter to the main pipeline
+#    description: Note two more problems; fix one
+#    link: '{{ store.url_32 }}'
+#    event: pull_request.opened
+#    actions:
+#      - type: respond
+#        with: zz-get-reviewed.md
+#        data:
+#          issue: '{{ store.issue_num_30 }}'
+#        store:
+#          pr_32: '{{ payload.pull_request.number }}'
+#  - title: Merge your splitters PR
+#    description: Respond to comments and then merge your PR
+#    link: '{{ store.pr_32 }}'
+#    event: pull_request.closed
+#    actions:
+#      - type: gate
+#        left: '{{ payload.pull_request.merged }}'
+#        else:
+#          - type: respond
+#            with: zz-merge-me.md
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: closeIssue
+#        issue: '{{ store.issue_num_30 }}'
+
       - type: createIssue
-        title: Splitters
-        body: 30-about-splitters.md
+        title: Appliers
+        body: 40-more-appliers.md
         comments:
           - zz-start-branch.md
         store:
-          url_30: '{{ result.data.html_url }}'
-          issue_num_30: '{{ result.data.number }}'
-          branch_30: 'splitter'
+          url_40: '{{ result.data.html_url }}'
+          issue_num_40: '{{ result.data.number }}'
+          branch_40: 'splitter'
         data:
-          branch: splitter
-  - title: Splitters
-    description: 'Learn when and how to break the "one function, one output" rule'
-    link: '{{ store.url_30 }}'
+          branch: appliers
+  - title: Goals for adding appliers
+    description: Check out some learning opportunities
+    link: '{{ store.url_40 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 31-go-bananas.md
+        with: 41-plot-tally.md
         store:
-          url_31: '{{ result.data.html_url }}'
-  - title: Create an inventory splitter
-    description: Split the inventory into separate state-specific files
-    link: '{{ store.url_31 }}'
+          url_41: '{{ result.data.html_url }}'
+  - title: Add plots and tallies
+    description: Expand the task table to include three steps
+    link: '{{ store.url_41 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 32-connect-splitter.md
+        with: 42-answers.md
         store:
-          url_32: '{{ result.data.html_url }}'
-  - title: Add the splitter to the main pipeline
-    description: Note two more problems; fix one
-    link: '{{ store.url_32 }}'
+          url_42: '{{ result.data.html_url }}'
+  - title: Check your answers and admire tidyverse
+    description: Spot the split-apply-combine in a tidyverse expression
+    link: '{{ store.url_42 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 43-force-TRUE.md
+        store:
+          url_43: '{{ result.data.html_url }}'
+  - title: Revise and rebuild
+    description: What happens if you revise the plotting function?
+    link: '{{ store.url_43 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 44-less-force.md
+        store:
+          url_44: '{{ result.data.html_url }}'
+  - title: Use less force
+    description: When is it appropriate to use force=TRUE?
+    link: '{{ store.url_44 }}'
     event: pull_request.opened
     actions:
       - type: respond
         with: zz-get-reviewed.md
         data:
-          issue: '{{ store.issue_num_30 }}'
+          issue: '{{ store.issue_num_40 }}'
         store:
-          pr_32: '{{ payload.pull_request.number }}'
-  - title: Merge your third PR
+          pr_44: '{{ payload.pull_request.number }}'
+  - title: Merge your appliers PR
     description: Respond to comments and then merge your PR
-    link: '{{ store.pr_32 }}'
+    link: '{{ store.pr_44 }}'
     event: pull_request.closed
     actions:
       - type: gate
@@ -228,7 +301,7 @@ steps:
       - type: respond
         with: zz-next-issue.md
       - type: closeIssue
-        issue: '{{ store.issue_num_30 }}'
+        issue: '{{ store.issue_num_40 }}'
       - type: createIssue
         title: >-
           What's next
