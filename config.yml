@@ -287,7 +287,7 @@ steps:
         data:
           issue: '{{ store.issue_num_40 }}'
         store:
-          pr_44 '{{ payload.pull_request.number }}'
+          pr_44: '{{ payload.pull_request.number }}'
   - title: Merge your appliers PR
     description: Respond to comments and then merge your PR
     link: '{{ store.pr_44 }}'
