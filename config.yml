@@ -183,7 +183,6 @@ steps:
 #        store:
 #          url_30: '{{ result.data.html_url }}'
 #          issue_num_30: '{{ result.data.number }}'
-#          branch_30: 'splitter'
 #        data:
 #          branch: splitter
 #  - title: Splitters
@@ -229,68 +228,150 @@ steps:
 #        with: zz-next-issue.md
 #      - type: closeIssue
 #        issue: '{{ store.issue_num_30 }}'
+##      - type: createFile
+##        filename: 40-plot_site_data.R
+##        new_name: 3_visualize/src/plot_site_data.R
+##        branch: master
+##      - type: createFile
+##        filename: 40-tally_site_obs.R
+##        new_name: 2_process/src/tally_site_obs.R
+##        branch: master
+#      - type: createIssue
+#        title: Appliers
+#        body: 40-more-appliers.md
+#        comments:
+#          - zz-start-branch.md
+#        store:
+#          url_40: '{{ result.data.html_url }}'
+#          issue_num_40: '{{ result.data.number }}'
+#        data:
+#          branch: appliers
+#  - title: Goals for adding appliers
+#    description: Check out some learning opportunities
+#    link: '{{ store.url_40 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 41-plot-tally.md
+#        store:
+#          url_41: '{{ result.data.html_url }}'
+#  - title: Add plots and tallies
+#    description: Expand the task table to include three steps
+#    link: '{{ store.url_41 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 42-answers.md
+#        store:
+#          url_42: '{{ result.data.html_url }}'
+#  - title: Check your answers and admire tidyverse
+#    description: Spot the split-apply-combine in a tidyverse expression
+#    link: '{{ store.url_42 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 43-force-TRUE.md
+#        store:
+#          url_43: '{{ result.data.html_url }}'
+#  - title: Revise and rebuild
+#    description: What happens if you revise the plotting function?
+#    link: '{{ store.url_43 }}'
+#    event: issue_comment.created
+#    actions:
+#      - type: respond
+#        with: 44-less-force.md
+#        store:
+#          url_44: '{{ result.data.html_url }}'
+#  - title: Use less force
+#    description: When is it appropriate to use force=TRUE?
+#    link: '{{ store.url_44 }}'
+#    event: pull_request.opened
+#    actions:
+#      - type: respond
+#        with: zz-get-reviewed.md
+#        data:
+#          issue: '{{ store.issue_num_40 }}'
+#        store:
+#          pr_44: '{{ payload.pull_request.number }}'
+#  - title: Merge your appliers PR
+#    description: Respond to comments and then merge your PR
+#    link: '{{ store.pr_44 }}'
+#    event: pull_request.closed
+#    actions:
+#      - type: gate
+#        left: '{{ payload.pull_request.merged }}'
+#        else:
+#          - type: respond
+#            with: zz-merge-me.md
+#      - type: respond
+#        with: zz-next-issue.md
+#      - type: closeIssue
+#        issue: '{{ store.issue_num_40 }}'
 
+      - type: createFile
+        filename: 50-plot_data_coverage.R
+        new_name: 3_visualize/src/plot_data_coverage.R
+        branch: master
       - type: createIssue
-        title: Appliers
-        body: 40-more-appliers.md
+        title: Combiners
+        body: 50-combiners.md
         comments:
           - zz-start-branch.md
         store:
-          url_40: '{{ result.data.html_url }}'
-          issue_num_40: '{{ result.data.number }}'
-          branch_40: 'splitter'
+          url_50: '{{ result.data.html_url }}'
+          issue_num_50: '{{ result.data.number }}'
         data:
-          branch: appliers
-  - title: Goals for adding appliers
-    description: Check out some learning opportunities
-    link: '{{ store.url_40 }}'
+          branch: combiners
+  - title: Combiners
+    description: When and how to combine results from task-steps
+    link: '{{ store.url_50 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 41-plot-tally.md
+        with: 51-plot-tally.md
         store:
-          url_41: '{{ result.data.html_url }}'
+          url_51: '{{ result.data.html_url }}'
   - title: Add plots and tallies
     description: Expand the task table to include three steps
-    link: '{{ store.url_41 }}'
+    link: '{{ store.url_51 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 42-answers.md
+        with: 52-answers.md
         store:
-          url_42: '{{ result.data.html_url }}'
+          url_52: '{{ result.data.html_url }}'
   - title: Check your answers and admire tidyverse
     description: Spot the split-apply-combine in a tidyverse expression
-    link: '{{ store.url_42 }}'
+    link: '{{ store.url_52 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 43-force-TRUE.md
+        with: 53-force-TRUE.md
         store:
-          url_43: '{{ result.data.html_url }}'
+          url_53: '{{ result.data.html_url }}'
   - title: Revise and rebuild
     description: What happens if you revise the plotting function?
     link: '{{ store.url_43 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 44-less-force.md
+        with: 54-less-force.md
         store:
-          url_44: '{{ result.data.html_url }}'
+          url_54: '{{ result.data.html_url }}'
   - title: Use less force
     description: When is it appropriate to use force=TRUE?
-    link: '{{ store.url_44 }}'
+    link: '{{ store.url_54 }}'
     event: pull_request.opened
     actions:
       - type: respond
         with: zz-get-reviewed.md
         data:
-          issue: '{{ store.issue_num_40 }}'
+          issue: '{{ store.issue_num_50 }}'
         store:
-          pr_44: '{{ payload.pull_request.number }}'
-  - title: Merge your appliers PR
+          pr_54: '{{ payload.pull_request.number }}'
+  - title: Merge your combiners PR
     description: Respond to comments and then merge your PR
-    link: '{{ store.pr_44 }}'
+    link: '{{ store.pr_54 }}'
     event: pull_request.closed
     actions:
       - type: gate
@@ -301,7 +382,7 @@ steps:
       - type: respond
         with: zz-next-issue.md
       - type: closeIssue
-        issue: '{{ store.issue_num_40 }}'
+        issue: '{{ store.issue_num_50 }}'
       - type: createIssue
         title: >-
           What's next
