@@ -4,7 +4,7 @@ You're getting close! The last step for this second combiner is to connect it to
 
 To connect both combiners to the main pipeline - and more broadly to follow pipelining best practices, ensuring that our pipeline's reproducibility is robust to modification - we need `do_state_tasks()` to create a single target that represents all the effects of the task table that we want to be visible to the pipeline.
 
-Let's take a moment to double-check what's meant by "all effects of the task table that we want to be visible." For this we need to check our project plans, because what we want does differ by project...but yep, for this project we won't ever need to revisit the state-specific data tables again, so we don't need to carry those `WI_data`, `WI_tally`, etc. objects back to the main pipeline. The `obs_tallies` argument will be sufficient to store the state tallies, and the *timeseries_plots.yml* file is sufficient to represent the status of the plot .png files.
+Let's take a moment to decide *which* effects of the task table we want to be visible. For this we need to check our project plans, because what we want does differ by project...ahh, here they are: In this course project we won't ever need to revisit the state-specific data tables again, so we don't need to carry those `WI_data`, `WI_tally`, etc. objects back to the main pipeline. The `obs_tallies` argument will be sufficient to store the state tallies, and the *timeseries_plots.yml* file is sufficient to represent the status of the plot .png files.
 
 Great! So we only have two outputs that need to be represented by `state_tasks`: the big tallies table and the plot summary file. Unfortunately, two outputs is still one too many. How can we tell the main pipeline about these two objects using just one output?
 
@@ -23,8 +23,39 @@ There are actually a few ways to implement this general strategy. So far we've c
 
 For this course, let's go with option 3 from the list above. 
 
-- [ ]
+- [ ] Add a new expression in `do_state_tasks()` right after
+  ```r
+  scmake('timeseries_plots.yml_promise', remake_file='123_state_tasks.yml')`
+  ```
+  to read *timeseries_plots.yml* into a tibble format:
+  ```r
+  timeseries_plots_info <- yaml::yaml.load_file('3_visualize/out/timeseries_plots.yml') %>%
+    tibble::enframe(name = 'filename', value = 'hash') %>%
+    mutate(hash = purrr::map_chr(hash, `[[`, 1))
+  ```
 
-- [ ] 
+- [ ] Change the return value of `do_state_tasks()` to be a list of both the tallies table and the plot summary tibble:
+  ```r
+  # Return the combiner targets to the parent remake file
+  return(list(obs_tallies=obs_tallies, timeseries_plots_info=timeseries_plots_info))
+  ```
 
+- [ ] In *remake.yml*, change the target name for the result of `do_state_tasks()` from `obs_tallies` to `state_combiners`.
 
+- [ ] Add these two unpacker targets right after the `state_combiners` target (`pluck()` is from **purrr**, which is loaded when you install the already-declared **tidyverse** package):
+  ```r
+  obs_tallies:
+    command: pluck(state_combiners, I('obs_tallies'))
+  timeseries_plots_info:
+    command: pluck(state_combiners, I('timeseries_plots_info'))
+  ```
+  
+#### Test
+
+- [ ] Run `obs_tallies <- scmake('obs_tallies')` and check the value of `obs_tallies`. Look good?
+
+- [ ] Run `timeseries_plots_info <- scmake('timeseries_plots_info')` and check the value of `obs_tallies`. Look good?
+
+Add any comments, questions, or revelations to a comment on this issue.
+
+<hr><h3 align="center">I'll respond when I see your comment.</h3>

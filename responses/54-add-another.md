@@ -20,7 +20,7 @@ Last time, you wrote your own combiner. This time you just need to check out `co
 
 - [ ] Add another line just below `obs_tallies <- scmake('obs_tallies_promise', remake_file='123_state_tasks.yml')` to build this second combiner. The new line should be:
   ```r
-  timeseries_plots <- scmake('timeseries_plots.yml_promise', remake_file='123_state_tasks.yml')`
+  scmake('timeseries_plots.yml_promise', remake_file='123_state_tasks.yml')`
   ```
   Note how the target name for this combiner differs from the target you provided in `final_targets`: it's the filename without the directories, and there's `_promise` at the end. This is the work of `as_promises=TRUE` again, this time as applied to a file target.
 

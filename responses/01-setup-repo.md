@@ -8,4 +8,23 @@ git clone git@github.com:{{ user.username }}/{{ repo }}.git
 cd {{ repo }}
 ```
 
+### :keyboard: Activity: Install packages as needed
+
+You may need to install some of the packages for this course if you don't have them already. These are:
+
+* **scipiper**
+* **remake**
+* **tidyverse**
+* **dataRetrieval**
+* **urbnmapr**
+* **leaflet**
+* **leafpop**
+* **htmlwidgets**
+
+If you don't already have **remake** and **scipiper** installed, refer to the documentation [here](https://github.com/USGS-R/scipiper/blob/master/README.md#installation) to install those packages.
+
+Install **urbnmapr** with `remotes::install_github('UrbanInstitute/urbnmapr')`.
+
+All the rest should be installable with `install.packages()`.
+
 <hr><h3 align="center">When you're set up locally, close this issue.</h3>

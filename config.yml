@@ -312,6 +312,10 @@ steps:
         filename: 50-plot_data_coverage.R
         new_name: 3_visualize/src/plot_data_coverage.R
         branch: master
+      - type: createFile
+        filename: 50-map_timeseries.R
+        new_name: 3_visualize/src/map_timeseries.R
+        branch: master
       - type: createIssue
         title: Combiners
         body: 50-combiners.md
@@ -323,44 +327,62 @@ steps:
         data:
           branch: combiners
   - title: Combiners
-    description: When and how to combine results from task-steps
+    description: Learn when and how to combine results from task-steps
     link: '{{ store.url_50 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 51-plot-tally.md
+        with: 51-code-a-combiner.md
         store:
           url_51: '{{ result.data.html_url }}'
-  - title: Add plots and tallies
-    description: Expand the task table to include three steps
+  - title: Add a data combiner
+    description: Combine the state tallies into one
     link: '{{ store.url_51 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 52-answers.md
+        with: 52-as_promises.md
         store:
           url_52: '{{ result.data.html_url }}'
-  - title: Check your answers and admire tidyverse
-    description: Spot the split-apply-combine in a tidyverse expression
+  - title: Discover as_promises
+    description: Learn nuances and solutions for combiner target names
     link: '{{ store.url_52 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 53-force-TRUE.md
+        with: 53-use-downstream.md
         store:
           url_53: '{{ result.data.html_url }}'
-  - title: Revise and rebuild
-    description: What happens if you revise the plotting function?
-    link: '{{ store.url_43 }}'
+  - title: Use the combiner downstream
+    description: Make a plot from the combined data
+    link: '{{ store.url_53 }}'
     event: issue_comment.created
     actions:
       - type: respond
-        with: 54-less-force.md
+        with: 54-add-another.md
         store:
           url_54: '{{ result.data.html_url }}'
-  - title: Use less force
-    description: When is it appropriate to use force=TRUE?
+  - title: Add a summary combiner
+    description: Summarize the state plots in one YAML file
     link: '{{ store.url_54 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 55-summary-target.md
+        store:
+          url_55: '{{ result.data.html_url }}'
+  - title: Connect both combiners to the pipline
+    description: Solve a one-function, two-target problem
+    link: '{{ store.url_55 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 56-summary-target.md
+        store:
+          url_56: '{{ result.data.html_url }}'
+  - title: Use the summary combiner downstream
+    description: Make a leaflet map of sites and timeseries data
+    link: '{{ store.url_56 }}'
     event: pull_request.opened
     actions:
       - type: respond
@@ -368,10 +390,10 @@ steps:
         data:
           issue: '{{ store.issue_num_50 }}'
         store:
-          pr_54: '{{ payload.pull_request.number }}'
+          pr_56: '{{ payload.pull_request.number }}'
   - title: Merge your combiners PR
     description: Respond to comments and then merge your PR
-    link: '{{ store.pr_54 }}'
+    link: '{{ store.pr_56 }}'
     event: pull_request.closed
     actions:
       - type: gate
