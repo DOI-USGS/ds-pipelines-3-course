@@ -13,15 +13,15 @@ steps:
   - title: Get the big picture
     description: Recognize the unique demands of data-rich pipelines
     link: '{{ store.url_00 }}'
-#    event: issues.assigned
-#    actions:
-#      - type: respond
-#        with: 01-setup-repo.md
-#        store:
-#          setup_repo_url: '{{ result.data.html_url }}'
-#  - title: Set up your local repo
-#    description: Git clone the repo to your computer
-#    link: '{{ store.setup_repo_url }}'
+    event: issues.assigned
+    actions:
+      - type: respond
+        with: 01-setup-repo.md
+        store:
+          setup_repo_url: '{{ result.data.html_url }}'
+  - title: Set up your local repo
+    description: Git clone the repo to your computer
+    link: '{{ store.setup_repo_url }}'
     event: issues.closed
     actions:
       - type: respond
