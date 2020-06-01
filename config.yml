@@ -228,14 +228,14 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_30 }}'
-#      - type: createFile
-#        filename: 40-plot_site_data.R
-#        new_name: 3_visualize/src/plot_site_data.R
-#        branch: master
-#      - type: createFile
-#        filename: 40-tally_site_obs.R
-#        new_name: 2_process/src/tally_site_obs.R
-#        branch: master
+      - type: createFile
+        filename: 40-tally_site_obs.R
+        new_name: 2_process/src/tally_site_obs.R
+        branch: master
+      - type: createFile
+        filename: 40-plot_site_data.R
+        new_name: 3_visualize/src/plot_site_data.R
+        branch: master
       - type: createIssue
         title: Appliers
         body: 40-more-appliers.md

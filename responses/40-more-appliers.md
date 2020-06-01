@@ -1,4 +1,4 @@
-Your pipeline is looking pretty good! Now it's time to add complexity. You may have already spotted these unused files in the repository:
+Your pipeline is looking pretty good! Now it's time to add complexity. I've just added these two files to the repository:
 * *2_process/src/tally_site_obs.R*
 * *3_visualize/src/plot_site_data.R*
 
