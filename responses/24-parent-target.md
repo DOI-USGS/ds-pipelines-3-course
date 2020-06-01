@@ -22,14 +22,16 @@ If you're not there yet, keep trying until your output matches mine. Then procee
 
 ### :keyboard: Activity: Connect the task remakefile to remake.yml
 
-Now that your function creates a complete and functional task remakefile, the remaining step is to revise the connection between the main *remake.yml* and the `do_state_tasks()` function: edit `do_state_tasks()` so that it not only creates but also builds the task remake file. Add these lines toward the end of `do_state_tasks()`, before the `return()` statement:
+Now that your function creates a complete and functional task remakefile, the remaining step is to revise the connection between the main *remake.yml* and the `do_state_tasks()` function: edit `do_state_tasks()` so that it not only creates but also builds the task remake file.
+
+- [ ] Add these lines toward the end of `do_state_tasks()`, before the `return()` statement:
 ```r
 # Build the tasks
 scmake('123_state_tasks', remake_file='123_state_tasks.yml')
 ```
 Wait, what?? You can call `scmake()` *within* a function that we're calling from a `remake.yml` target? Yep, sure can! It just works. (OK, mostly works - there's a gotchya we'll get into in the "Shared-cache pipelines" course, but it doesn't apply here.)
 
-Add `state_tasks` to the `depends` list for the `all` target in *remake.yml*.
+- [ ] Add `state_tasks` to the `depends` list for the `main` target in *remake.yml*.
 
 That's it, you did it! For now, anyway.
 

@@ -15,15 +15,18 @@ With that intro out of the way, let's get going on this task table already!
 Your job for this activity is to modify *123_state_tasks.R* to define the rows and columns of your task table.
 
 #### Connect to `remake.yml`
+
 Connect this starter function to the `remake.yml` file. It has well-formed (albeit boring) outputs already.
-1. Remember how last issue you added three targets beneath the line that said `# TODO: PULL SITE DATA HERE`? Well, now you should delete those targets and replace them with a recipe that calls the `do_state_tasks()` function.
+
+- [ ] Remember how last issue you added three targets beneath the line that said `# TODO: PULL SITE DATA HERE`? Well, now you should delete those targets and replace them with a recipe that calls the `do_state_tasks()` function.
 ```yml
   # TODO: PULL SITE DATA HERE
   state_tasks:
     command: do_state_tasks(oldest_active_sites)
 ```
-2. Add "123_state_tasks.R" to the `sources` section of `remake.yml`.
-3. Make sure the connection works by calling `print(scmake('state_tasks'))`. You should see 
+- [ ] Add "123_state_tasks.R" to the `sources` section of `remake.yml`.
+
+- [ ] Make sure the connection works by calling `print(scmake('state_tasks'))`. You should see 
 ```r
 $example_target_name
 [1] "WI_download"
@@ -34,16 +37,19 @@ $example_command
 You can call this same command as you're revising code in the next couple of steps to check your progress.
 
 #### Define the rows
-Define the rows by creating a vector of state names where it says `# TODO: DEFINE A VECTOR OF TASK NAMES HERE`. Use information from `oldest_active_sites`, which is already an argument to the `do_state_tasks()` function. You won't need much code.
+
+- [ ] Define the rows by creating a vector of 2-digit state codes where it says `# TODO: DEFINE A VECTOR OF TASK NAMES HERE`. Use information from `oldest_active_sites`, which is already an argument to the `do_state_tasks()` function. You won't need much code.
 
 #### Define the columns
+
 Modify the existing column definition for `download_step` so that it pulls the data from NWIS for each state's oldest monitoring site, referring to `?create_task_step` for help on the syntax.
 
-1. Modify the `target_name` argument to `create_task_step()` so that each target (**task-step**) within this column will get a name like `WI_data`. The `target_name` argument should be a function of the form `function(task_name, step_name, ...) {}` where the body of the function constructs and returns a string for each combination of `task_name` (e.g., 'WI') and `step_name` (where we've already defined this step name to be 'download'). You can ignore the `step_name` this time. When it comes time to create the task plan (the R list), this function will get applied to each value of `task_name` in a vector of `task_names`.
+- [ ] Modify the `target_name` argument to `create_task_step()` so that each target (**task-step**) within this column will get a name like `WI_data`. The `target_name` argument should be a function of the form `function(task_name, step_name, ...) {}` where the body of the function constructs and returns a string for each combination of `task_name` (e.g., 'WI') and `step_name` (where we've already defined this step name to be 'download'). You can ignore the `step_name` this time. When it comes time to create the task plan (the R list), this function will get applied to each value of `task_name` in a vector of `task_names`.
 
-2. Modify the `command` argument to `create_task_step()` so that each command within this column will look like the commands you wrote for `wi_data`, `mn_data`, and `mi_data` in `remake.yml` in the previous issue. 
+- [ ] Modify the `command` argument to `create_task_step()` so that each command within this column will look like the commands you wrote for `wi_data`, `mn_data`, and `mi_data` in `remake.yml` in the previous issue. 
 
 #### Test
+
 When you're ready, call `print(scmake('state_tasks'))` and paste the output into a new comment on this issue.
 
 <hr><h3 align="center">I'll respond when I see your comment.</h3>

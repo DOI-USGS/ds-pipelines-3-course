@@ -16,13 +16,13 @@ We'll solve the problem with (3) here and will deal with (2) in the next issue.
 
 To ensure that a task-table target like `state_tasks` always rebuilds when there are changes to the dependencies of the targets in *123_state_tasks.yml*, we need to declare all of those dependencies within the `command` or `depends` field of the `state_tasks` target. Currently `oldest_active_sites` is the only dependency of the `XX_data` targets that is already declared (because it happens to also be needed to construct the task remakefile). Let's declare the rest.
 
-The undeclared dependency we've already identified is `get_site_data()`. We can't directly declare functions as dependencies, but we can get pretty close by declaring the source code file (*1_fetch/src/get_site_data.R*) as a dependency. Add that file to the `depends` field for the `state_tasks` target now.
+- [ ] The undeclared dependency we've already identified is `get_site_data()`. We can't directly declare functions as dependencies, but we can get pretty close by declaring the source code file (*1_fetch/src/get_site_data.R*) as a dependency. Add that file to the `depends` field for the `state_tasks` target now.
 
-It would be ideal to also declare `parameter` as a dependency, because this target is needed by each call to `get_site_data()`. It's not strictly necessary in this example because `oldest_active_sites` will almost certainly change if `parameter` changes...but oh, heck, go ahead an add it anyway to build good habits.
+- [ ] It would be ideal to also declare `parameter` as a dependency, because this target is needed by each call to `get_site_data()`. It's not strictly necessary in this example because `oldest_active_sites` will almost certainly change if `parameter` changes...but oh, heck, go ahead an add it anyway to build good habits.
 
-When you're satisfied with your code, commit your changes to existing R and YAML files, and also commit the new 123_state_tasks.yml file.
+When you're satisfied with your code, commit your changes to existing R and YAML files, and also commit the new *123_state_tasks.yml* file.
 
-We've gone both ways on committing *XYZ_tasks.yml* files in the past.
+We've gone both ways on committing *XYZ_tasks.yml* files (such as *123_state_tasks.yml*) in the past.
 * Con to committing: These files are automatically generated, so it's not technically necessary to commit them.
 * Pro: It's often convenient to commit them so they're visible to all teammates for discussion and debugging.
 * Con: For large numbers of tasks, these files get to be so long that they're no longer easy to inspect using git or GitHub, so the benefits of committing them diminish.
