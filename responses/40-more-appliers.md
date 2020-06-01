@@ -1,19 +1,19 @@
-Your pipeline is looking pretty good! Now it's time to add complexity. You may have already spotted these unused files in the repository:
+Your pipeline is looking pretty good! Now it's time to add complexity. I've just added these two files to the repository:
 * *2_process/src/tally_site_obs.R*
 * *3_visualize/src/plot_site_data.R*
 
-In this issue you'll add these functions to the pipeline in the form of two new steps.
+In this issue you'll add these functions to the task table in the form of two new steps.
 
 ### Background
 
-The goal of this issue is to expose you to **multi-step task tables**. They're not hugely different from the single-step task table we've already implemented, but there are a few implementation details that you haven't seen yet. The changes you'll make for this issue will also set us up to touch on some miscellaneous pipeline topics. Briefly, we'll cover:
+The goal of this issue is to expose you to **multi-step task tables**. They're not hugely different from the single-step task table we've already implemented, but there are a few details that you haven't seen yet. The changes you'll make for this issue will also set us up to touch on some miscellaneous pipeline topics. Briefly, we'll cover:
 
 * The syntax for adding two steps to a task table
 * How to declare dependencies among steps within a task table
 * A quick look at / review of *split-apply-combine* with the lightweight **dplyr** syntax
 * Uses and abuses of the `force = TRUE` argument to `scmake()` in the task-table context
 
-#### `create_task_step()` options
+#### Digging deeper into `create_task_step()`
 
 The `create_task_step()` function offers a lot of flexibility if you're willing to figure out the syntax. Specifically, you might have noticed the `...` in the arguments list of each function you pass to `create_task_step()`. You don't get to decide what's available in the `...`s, but you do get do decide whether you use that information.
 
