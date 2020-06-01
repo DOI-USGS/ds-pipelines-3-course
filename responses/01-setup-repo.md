@@ -27,4 +27,10 @@ Install **urbnmapr** with `remotes::install_github('UrbanInstitute/urbnmapr')`.
 
 All the rest should be installable with `install.packages()`.
 
+### :keyboard: Activity: Invite some collaborators
+
+Alison (**aappling-usgs**) and/or Jordan (**jread-usgs**) will be providing code reviews during your course. To make it possible for you to request reviews from them, go to the *Settings* tab, *Manage access* subtab, and then click the green button to *Invite a collaborator* to add each of their usernames to your repo.
+
+![How to invite reviewers](https://user-images.githubusercontent.com/12039957/83422503-9fb65e00-a3f7-11ea-8e06-ad87c813247e.png)
+
 <hr><h3 align="center">When you're set up locally, close this issue.</h3>
