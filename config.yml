@@ -88,10 +88,10 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_10 }}'
-#      - type: createFile
-#        filename: 21-123_state_tasks.R
-#        new_name: 123_state_tasks.R
-#        branch: master
+      - type: createFile
+        filename: 21-123_state_tasks.R
+        new_name: 123_state_tasks.R
+        branch: master
       - type: createIssue
         title: Task tables
         body: 20-task-table.md
