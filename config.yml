@@ -88,10 +88,10 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_10 }}'
-      - type: createFile
-        filename: 21-123_state_tasks.R
-        new_name: 123_state_tasks.R
-        branch: master
+#      - type: createFile
+#        filename: 21-123_state_tasks.R
+#        new_name: 123_state_tasks.R
+#        branch: master
       - type: createIssue
         title: Task tables
         body: 20-task-table.md
@@ -228,14 +228,14 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_30 }}'
-      - type: createFile
-        filename: 40-tally_site_obs.R
-        new_name: 2_process/src/tally_site_obs.R
-        branch: master
-      - type: createFile
-        filename: 40-plot_site_data.R
-        new_name: 3_visualize/src/plot_site_data.R
-        branch: master
+#      - type: createFile
+#        filename: 40-tally_site_obs.R
+#        new_name: 2_process/src/tally_site_obs.R
+#        branch: master
+#      - type: createFile
+#        filename: 40-plot_site_data.R
+#        new_name: 3_visualize/src/plot_site_data.R
+#        branch: master
       - type: createIssue
         title: Appliers
         body: 40-more-appliers.md
@@ -307,14 +307,14 @@ steps:
         with: zz-next-issue.md
       - type: closeIssue
         issue: '{{ store.issue_num_40 }}'
-      - type: createFile
-        filename: 50-plot_data_coverage.R
-        new_name: 3_visualize/src/plot_data_coverage.R
-        branch: master
-      - type: createFile
-        filename: 50-map_timeseries.R
-        new_name: 3_visualize/src/map_timeseries.R
-        branch: master
+#      - type: createFile
+#        filename: 50-plot_data_coverage.R
+#        new_name: 3_visualize/src/plot_data_coverage.R
+#        branch: master
+#      - type: createFile
+#        filename: 50-map_timeseries.R
+#        new_name: 3_visualize/src/map_timeseries.R
+#        branch: master
       - type: createIssue
         title: Combiners
         body: 50-combiners.md
