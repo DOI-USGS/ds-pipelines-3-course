@@ -19,7 +19,7 @@ In *123_state_tasks.R*:
 
 - [ ] Run `scmake('state_tasks')`. Is it building a timeseries plot and a `tally` object for each state? If not, keep fiddling with your code until you get it to work.
 
-- [ ] Check the contents of the *2_visualize/out* directory and inspect at least one of the plots. How do they look?
+- [ ] Check the contents of the *3_visualize/out* directory and inspect at least one of the plots. How do they look?
 
 - [ ] Assign the value of `IN_tally` to a variable of the same name in your global environment. This will require a bit of special syntax - review `?scmake` for clues and ask if you get stuck.
 

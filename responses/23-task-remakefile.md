@@ -80,7 +80,7 @@ You now have a new remakefile. Put it through its paces to make sure it's workin
 
 - [ ] Run `remake::diagram(remake_file='remake.yml')` and `remake::diagram(remake_file='123_state_tasks.yml')`. Do you understand the relationship between the two diagrams?
 
-- [ ] Set the `include` argument to `c()` in `create_task_makefile()`, build the remakefile again with `scmake('state_tasks')`, and run `remake::diagram(remake_file='123_state_tasks.yml')`. Do you understand the resulting message? Set the `include` argument back to its original value once you're done experimenting.
+- [ ] Set the `include` argument to `c()` in `create_task_makefile()`, build the remakefile again with `scmake('state_tasks')`, and run `remake::diagram(remake_file='123_state_tasks.yml')`. Do you understand the resulting error? Set the `include` argument back to its original value once you're done experimenting.
 
 - [ ] Run `scmake('WI_data', remake_file='123_state_tasks.yml')`, potentially revising your call to `create_task_makefile()` if needed, until you can get the target to build successfully. (Note that you can't just edit `123_state_tasks.R` and see the changes immediately reflected in `scmake('WI_data', remake_file='123_state_tasks.yml')` - you need to call `scmake('state_tasks')` after editing. This problem will go away once our task table function is fully connected to the main pipeline.)
 

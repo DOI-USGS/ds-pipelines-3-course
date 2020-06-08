@@ -26,6 +26,8 @@ Connect this starter function to the `remake.yml` file. It has well-formed (albe
 ```
 - [ ] Add "123_state_tasks.R" to the `sources` section of `remake.yml`.
 
+- [ ] Add **scipiper** to the `packages` section of `remake.yml`, because shortly we'll be calling **scipiper** functions within pipeline recipes, including the recipe for `state_tasks`.
+
 - [ ] Make sure the connection works by calling `print(scmake('state_tasks'))`. You should see 
 ```r
 $example_target_name
