@@ -405,6 +405,80 @@ steps:
       - type: closeIssue
         issue: '{{ store.issue_num_50 }}'
       - type: createIssue
+        title: Scale up
+        body: 60-capstone.md
+        comments:
+          - zz-start-branch.md
+        store:
+          url_60: '{{ result.data.html_url }}'
+          issue_num_60: '{{ result.data.number }}'
+        data:
+          branch: scale-up
+  - title: Capstone overview
+    description: Prepare to expand your pipeline
+    link: '{{ store.url_60 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 61-expand-states.md
+        store:
+          url_61: '{{ result.data.html_url }}'
+  - title: Add a data combiner
+    description: Expand your pipeline to more states
+    link: '{{ store.url_61 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 62-loop_tasks.md
+        store:
+          url_62: '{{ result.data.html_url }}'
+  - title: 'Discover `loop_tasks`'
+    description: 'Try out `loop_tasks()` for building tasks tables'
+    link: '{{ store.url_62 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 63-force-loop.md
+        data:
+          current-branch: scale-up
+          new-branch: temperature
+        store:
+          url_63: '{{ result.data.html_url }}'
+  - title: Reuse your pipeline
+    description: Repurpose your pipeline for temperature data
+    link: '{{ store.url_63 }}'
+    event: issue_comment.created
+    actions:
+      - type: respond
+        with: 64-pr-and-branch.md
+        store:
+          url_64: '{{ result.data.html_url }}'
+  - title: Save two branches
+    description: Get feedback on your two live repo branches
+    link: '{{ store.url_64 }}'
+    event: pull_request.opened
+    actions:
+      - type: respond
+        with: zz-get-reviewed.md
+        data:
+          issue: '{{ store.issue_num_60 }}'
+        store:
+          pr_64: '{{ payload.pull_request.number }}'
+  - title: Merge your capstone PR
+    description: Respond to comments and then merge your PR
+    link: '{{ store.pr_64 }}'
+    event: pull_request.closed
+    actions:
+      - type: gate
+        left: '{{ payload.pull_request.merged }}'
+        else:
+          - type: respond
+            with: zz-merge-me.md
+      - type: respond
+        with: zz-next-issue.md
+      - type: closeIssue
+        issue: '{{ store.issue_num_60 }}'
+      - type: createIssue
         title: >-
           What's next
         body: 90-whats-next.md
