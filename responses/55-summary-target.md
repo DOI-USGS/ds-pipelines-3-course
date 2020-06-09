@@ -45,9 +45,9 @@ For this course, let's go with option 3 from the list above.
 - [ ] Add these two unpacker targets right after the `state_combiners` target (`pluck()` is from **purrr**, which is loaded when you install the already-declared **tidyverse** package):
   ```r
   obs_tallies:
-    command: pluck(state_combiners, I('obs_tallies'))
+    command: pluck(state_combiners, target_name)
   timeseries_plots_info:
-    command: pluck(state_combiners, I('timeseries_plots_info'))
+    command: pluck(state_combiners, target_name)
   ```
   
 #### Test

@@ -24,7 +24,7 @@
 
 #### Connect the pipeline
 
-- [ ] Add *123_state_tasks.R* as (1) a `source` in your call to `create_task_makefile()` within `do_state_tasks()` and (2) a `depends` item in the recipe for `state_tasks` in *remake.yml*. This exercise should be familiar; you need to specify your code sources so that both *123_state_tasks.yml* and *remake.yml* can see them.
+- [ ] Add `'123_state_tasks.R'` as yet another unnamed argument in the recipe for `state_tasks` in *remake.yml*. This exercise should be familiar; you need to specify your code sources here (and propagate them through to `create_task_makefile()` using the `...` argument to `do_state_tasks()`) so that both *123_state_tasks.yml* and *remake.yml* can see them.
 
 - [ ] Edit the `# Build the tasks` code chunk within `do_state_tasks` so that the target that gets built is `obs_tallies` and the output is assigned to a local variable also named `obs_tallies`.
 

@@ -13,7 +13,7 @@ You're down to the last task for this issue! I hope you'll find this one rewardi
 
 - [ ] Run `scmake()`. Any surprises?
 
-- [ ] Check out the results of your new map by opening *3_visualize/out/timeseries_map.html* in the browser. You should be able to hover and click one each marker.
+- [ ] Check out the results of your new map by opening *3_visualize/out/timeseries_map.html* in the browser. You should be able to hover and click on each marker.
 
 - [ ] Add or subtract a state from the `states` vector and rerun `scmake()`. Did you see the rebuilds and non-rebuilds that you expected? Did the html file change as expected?
 

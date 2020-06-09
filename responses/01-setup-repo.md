@@ -17,6 +17,8 @@ You may need to install some of the packages for this course if you don't have t
 * **tidyverse**
 * **dataRetrieval**
 * **urbnmapr**
+* **rnaturalearth**
+* **cowplot**
 * **leaflet**
 * **leafpop**
 * **htmlwidgets**

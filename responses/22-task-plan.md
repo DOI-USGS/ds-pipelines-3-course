@@ -15,7 +15,9 @@ If you're not there yet, keep trying until your output matches mine. Then procee
 ### :keyboard: Activity: Create the task plan
 
 #### Sketch the plan
-`create_task_plan()` generates an R list that defines your plan. To use this function in *123_state_tasks.R*, replace this code chunk
+`create_task_plan()` generates an R list that defines your plan. To use this function in *123_state_tasks.R*,
+
+- [ ] Replace this code chunk
 ```r
 # Return test results to the parent remake file
 return(list(
@@ -38,11 +40,11 @@ return(yaml::as.yaml(task_plan))
 #### Flesh out the plan
 Now modify the new block:
 
-* Assign the task names you defined above to the `task_names` argument.
+- [ ] Assign the task names you defined above to the `task_names` argument.
 
-* Assign a `list` of steps to the `task_steps` argument. In this case there will just be one step in the list.
+- [ ] Assign a `list` of steps to the `task_steps` argument. In this case there will just be one step in the list.
 
-* Leave `add_complete = FALSE` as it is. Feel free to experiment later with changing this argument to `TRUE`, but it's not relevant to the current exercise. You can learn more about this and other arguments with a call to `?create_task_plan` if and when you're ready.
+- [ ] Leave `add_complete = FALSE` as it is. Feel free to experiment later with changing this argument to `TRUE`, but it's not relevant to the current exercise. You can learn more about this and other arguments with a call to `?create_task_plan` if and when you're ready.
 
 #### Test
 Note that we're now returning `yaml::as.yaml(task_plan)` from this function. This is still a temporary return value but gives you a way to inspect what you've created. It's also possible to print out the raw value of `task_plan` - it's just an R list, after all - but converting it to YAML makes it more concise and human-readable. The `cat` call suggested next makes the YAML text print nicely to the console.

@@ -1,10 +1,15 @@
 ### :keyboard: Activity: Create a separate inventory for each state
 
-- [ ] Create a `1_fetch/tmp` directory. We often create `tmp` directories within phases to house data that's only important within that step. Since we already have `oldest_active_sites` as a top-level target, and the files we're about to create are redundant with that information, there's no need to store it twice in a higher-profile location like `out`. The choice between `tmp` and `out` is a judgment call generally; try `tmp` here and see how you like it.
+- [ ] Add a line at the start of `do_state_tasks` to create a `1_fetch/tmp` directory. We often create `tmp` directories within phases to house data that's only important within that step. Since we already have `oldest_active_sites` as a top-level target, and the files we're about to create are redundant with that information, there's no need to store it twice in a higher-profile location like `out`. The choice between `tmp` and `out` is a judgment call generally; try `tmp` here and see how you like it. The line to add is:
+  ```r
+  if(!dir.exists('1_fetch/tmp')) dir.create('1_fetch/tmp')
+  ```
 
-- [ ] Head over to `123_state_tasks.R` and define a new function with this boilerplate:
+- [ ] Scroll to the bottom of `123_state_tasks.R` and define a new function with this boilerplate:
 ```r
-split_inventory <- function(summary_file, sites_info) {
+split_inventory <- function(
+  summary_file='1_fetch/tmp/state_splits.yml',
+  sites_info=oldest_active_sites)
 
 }
 ```
