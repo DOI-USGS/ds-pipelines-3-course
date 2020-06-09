@@ -22,12 +22,12 @@ The above notes are really just intended to raise your awareness about complicat
 
 - [ ] Change the parameter code (`parameter` in *remake.yml*) from `00060` (flow) to `00010` (water temperature).
 
-- [ ] Remove 'VT' and 'GU' from the `states` target in *remake.yml*. It turns out that NWIS returns errors for these two states/territories for temperature.
+- [ ] Remove 'VT' and 'GU' from the `states` target in *remake.yml*. It turns out that NWIS returns errors for these two states/territories for temperature, so we'll just skip them.
 
 #### Test
 
 - [ ] Run `library(scipiper)` (because you're in a new R session) and then `scmake()`. Note the different console messages this time.
 
-Comment on what you're seeing. Try to explain why you're seeing this behavior.
+When everything has run successfully, use a comment to share the images from timeseries_KY.png, timeseries_VT.png, and data_coverage.png. Include any observations you want to share about the build.
 
 <hr><h3 align="center">I'll respond when I see your comment.</h3>

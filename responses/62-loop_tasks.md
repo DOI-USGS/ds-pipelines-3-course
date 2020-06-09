@@ -32,6 +32,8 @@ _(where the exact hash value will differ for you). I think the issue might have 
 
 - [ ] Run `scmake()`. Note the different console messages this time. Grab a tea or coffee if you like - it's a long run (~7-minutes), but at least there's no babysitting needed!
 
+#### Commit
+
 - [ ] Commit and push your changes to GitHub. No need to make a PR yet, though; we'll keep working on this issue for a few more minutes first before getting human feedback.
 
 Comment once you've committed and pushed your changes to GitHub.

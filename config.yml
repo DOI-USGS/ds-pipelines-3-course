@@ -423,8 +423,8 @@ steps:
         with: 61-expand-states.md
         store:
           url_61: '{{ result.data.html_url }}'
-  - title: Add a data combiner
-    description: Expand your pipeline to more states
+  - title: Scale up
+    description: Expand your pipeline to many more states
     link: '{{ store.url_61 }}'
     event: issue_comment.created
     actions:
@@ -438,7 +438,7 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 63-force-loop.md
+        with: 63-repurpose-pipeline.md
         data:
           current-branch: scale-up
           new-branch: temperature
@@ -450,11 +450,11 @@ steps:
     event: issue_comment.created
     actions:
       - type: respond
-        with: 64-pr-and-branch.md
+        with: 64-loop-tricks.md
         store:
           url_64: '{{ result.data.html_url }}'
-  - title: Save two branches
-    description: Get feedback on your two live repo branches
+  - title: Wrap up
+    description: Retrospect and get feedback on your two repo branches
     link: '{{ store.url_64 }}'
     event: pull_request.opened
     actions:
