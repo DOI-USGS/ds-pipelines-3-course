@@ -14,7 +14,13 @@ There's an option in `scmake()` to force the rebuild of one or more targets...bu
 
 ### :keyboard: Activity: Avoid `force=TRUE`
 
-You can avoid the need for `scmake(..., force=TRUE)` here by declaring the dependency on `plot_site_data.R` at the top level. Add *3_visualize/src/plot_site_data.R* to the `depends` list in the recipe for `state_tasks` in *remake.yml*. While you're in there, better do the same for *2_process/src/tally_site_obs.R* for the same reason! Does this feel familiar? You did it for *1_fetch/src/get_site_data.R* a few issues ago, but it's an easy step to forget.
+You can avoid the need for `scmake(..., force=TRUE)` here by declaring the dependency on `plot_site_data.R` at the top level.
+
+- [ ] Add `'3_visualize/src/plot_site_data.R'` as another unnamed argument in the recipe for `state_tasks` in *remake.yml*. 
+
+- [ ] While you're in there, better do the same for `'2_process/src/tally_site_obs.R'` for the same reason! 
+
+- [ ] Does this adding of source files feel familiar? You did it for *1_fetch/src/get_site_data.R* a few issues ago, but it's an easy step to forget. You can actually save yourself the headache altogether if you set up your code a bit differently. First, see how the contents of `...` in `do_state_tasks()` exactly match the contents of the `sources` argument to `create_task_makefile()`? This will be a consistent pattern, so rewrite that `create_task_makefile()` argument to use the `...`, like so: `sources = c(...)`. Now you only need to remember to add new source files for *123_state_tasks.yml* in one place - *remake.yml* - so it should be easier to get right.
 
 Now that we've fixed that last issue, your code is ready for a pull request. Go for it!
 
