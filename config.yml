@@ -377,6 +377,8 @@ steps:
     actions:
       - type: respond
         with: 56-html-target.md
+        data:
+          branch: combiners
         store:
           url_56: '{{ result.data.html_url }}'
   - title: Use the summary combiner downstream
@@ -451,6 +453,9 @@ steps:
     actions:
       - type: respond
         with: 64-loop-tricks.md
+        data:
+          first-branch: scale-up
+          second-branch: temperature
         store:
           url_64: '{{ result.data.html_url }}'
   - title: Wrap up

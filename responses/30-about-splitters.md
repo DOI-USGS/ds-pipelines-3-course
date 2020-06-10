@@ -52,10 +52,10 @@ Hash algorithms come from cryptography, which makes them extra cool :detective:
 
 In this issue you'll create a splitter to make your task table more efficient in the face of a changing inventory in `oldest_active_sites`. Your splitter function will generate a separate one-row inventory file for each state, plus a YAML file that summarizes all of the single-state inventories with a filenames and hashes roughly like this:
 ```yml
-WI_inventory.tsv: 43f22b403b9c7ae4a3dad66b7bdcaaeb
-MN_inventory.tsv: cad4d1a1a689546b8e66613d5745ab4d
-MI_inventory.tsv: 3a080aef6e864631a441b4741592e307
-IL_inventory.tsv: df729a4c8bdf0faaea5b6ebcb80dbf5e
+1_fetch/tmp/inventory_IL.tsv: 4c59d14d16b3af05dff6e6d6dfc8aac9
+1_fetch/tmp/inventory_MI.tsv: fed321c051ee99e2c7b163c5c4c10320
+1_fetch/tmp/inventory_MN.tsv: d2bff76a0631abf055421b86d033d80c
+1_fetch/tmp/inventory_WI.tsv: b6167db818f91d792ec639b6ec4faf68
 ```
 
 Ready?

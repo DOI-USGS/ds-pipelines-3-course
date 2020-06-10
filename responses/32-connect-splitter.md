@@ -27,8 +27,6 @@ Comfortable with your pipeline's behavior? Time for a PR!
 
 - [ ] Add `!1_fetch/tmp/state_splits.yml` to your *.gitignore* file to tell git that it should commit this one file even though it's in *1_fetch/tmp*. (You could have actually dealt with all files in *1_fetch/tmp* with just one .gitignore line, `1_fetch/tmp/*.tsv`...but I wanted you to know about `!` in *.gitignore* in case that's new to you. Neat, right?)
 
-- [ ] Also use *.gitignore* to ignore the entire *.remake* folder, *3_visualize/out*, and any *.DS_Store* files.
-
 - [ ] Commit *1_fetch/tmp/state_splits.yml* and your changes to *123_state_tasks.R*, *1_fetch/src/get_site_data.R*, *123_state_tasks.yml*, *remake.yml*, and *.gitignore*. Use `git push` to push your change up to the "splitter" branch on GitHub.
 
 When everything is committed and pushed, create a pull request on GitHub. In your PR description note which files got built when you added `IN` and `IA` to `states`.

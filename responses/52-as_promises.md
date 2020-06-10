@@ -4,7 +4,7 @@ Some answers to compare to your own:
 
 _1. Inspect the console output. Which task steps (`download`, `tally`, and/or `plot`) are no longer getting built or checked? Inspect *123_state_tasks.yml* to see if you can figure out why._
 
-The `plot` tasks are no longer getting built or checked. They're still there in *123_state_tasks.yml*, but they're no longer listed as dependencies of the default target (`123_state_tasks`). The `download` and `tally` tasks also got removed from the default target dependencies, but the default target does depend on the tallies combiner, which depends on each of the `tally` tasks, which in turn depend on the `download` tasks, so that's why the `tally` and `download` tasks still get considered.
+The `plot` task-steps are no longer getting built or checked. They're still there in *123_state_tasks.yml*, but we're now only building the `obs_tallies` target, which depends on the `download` and `tally` steps but not on the `plot` steps. Also, the plots are no longer listed even as dependencies of the default target (`123_state_tasks`). The `download` and `tally` steps also got removed from the default target dependencies, but the default target does depend on the tallies combiner, which depends on each of the `tally` steps, which in turn depend on the `download` steps, so that's why the `tally` and `download` steps still get considered.
 
 _2. Inspect the value of `state_tasks`. Is it what you expected?_
 
@@ -32,7 +32,7 @@ Here's what my `state_tasks` looks like. Your number of rows might vary slightly
 
 We stuck with the name `state_tasks` in the main pipeline, but this target would now be more aptly named `obs_tallies`.
 
-- [ ] Try changing the target name from `state_tasks` to `obs_tallies` in *remake.yml* (do a find-replace to change it everywhere it occurs in that file).
+- [ ] Try changing the target name from `state_tasks` to `obs_tallies` in *remake.yml* (do a whole-word find-replace to change it everywhere it occurs in that file).
 
 - [ ] Run `scmake()` again. What happens? Identify the line in *123_state_tasks.yml* that defines a target of the same name.
 
