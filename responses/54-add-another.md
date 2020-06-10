@@ -20,7 +20,7 @@ Last time, you wrote your own combiner. This time you just need to check out `co
 
 - [ ] Add another line just below `obs_tallies <- scmake('obs_tallies_promise', remake_file='123_state_tasks.yml')` to build this second combiner. The new line should be:
   ```r
-  scmake('timeseries_plots.yml_promise', remake_file='123_state_tasks.yml')`
+  scmake('timeseries_plots.yml_promise', remake_file='123_state_tasks.yml')
   ```
   Note how the target name for this combiner differs from the target you provided in `final_targets`: it's the filename without the directories, and there's `_promise` at the end. This is the work of `as_promises=TRUE` again, this time as applied to a file target.
 
@@ -69,7 +69,7 @@ The solution for this multi-combiner pipeline is to filter the arguments in each
     do.call(combine_to_ind, c(list(ind_file), plot_dots))
   }
   ```
-  Then replace `'combine_to_ind'` with `summarize_timeseries_plots` in the `finalize_funs` argument to `create_task_makefile()`.
+  Then replace `'combine_to_ind'` with `'summarize_timeseries_plots'` in the `finalize_funs` argument to `create_task_makefile()`.
 
 - [ ] Run `scmake()` again and then check the contents of *3_visualize/out/data_coverage.png* and *3_visualize/out/timeseries_plots.yml* to make sure you've succeeded in hooking up both combiners.
 

@@ -15,9 +15,9 @@
 
 #### Test
 
-- [ ] Run `scmake()` once. Note what gets rebuilt.
+- [ ] Run `scmake()` once. Note what gets [re]built.
 
-- [ ] Run `scmake()` again. Note what gets rebuilt.
+- [ ] Run `scmake()` again. Note what gets [re]built.
 
 - [ ] For fun, here are some optional math questions. Assume that you just added 46 new states, and each state data pull has a 50% chance of failing.
   1. What are the odds of completing all the data pulls in a single call to `scmake()`?

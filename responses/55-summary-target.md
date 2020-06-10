@@ -54,7 +54,7 @@ For this course, let's go with option 3 from the list above.
 
 - [ ] Run `obs_tallies <- scmake('obs_tallies')` and check the value of `obs_tallies`. Look good?
 
-- [ ] Run `timeseries_plots_info <- scmake('timeseries_plots_info')` and check the value of `obs_tallies`. Look good?
+- [ ] Run `timeseries_plots_info <- scmake('timeseries_plots_info')` and check the value of `timeseries_plots_info`. Look good?
 
 Add any comments, questions, or revelations to a comment on this issue.
 

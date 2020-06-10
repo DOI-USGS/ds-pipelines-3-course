@@ -7,9 +7,9 @@
 - [ ] Test your `combine_obs_tallies()` function. Run
   ```r
   source('123_state_tasks.R') # load `combine_obs_tallies()`
-  WI_tally <- scmake('WI_tally', remake_file='123_state_tasks.yml')
-  MN_tally <- scmake('MN_tally', remake_file='123_state_tasks.yml')
-  IA_tally <- scmake('IA_tally', remake_file='123_state_tasks.yml')
+  WI_tally <- remake::fetch('WI_tally', remake_file='123_state_tasks.yml')
+  MN_tally <- remake::fetch('MN_tally', remake_file='123_state_tasks.yml')
+  IA_tally <- remake::fetch('IA_tally', remake_file='123_state_tasks.yml')
   combine_obs_tallies(WI_tally, MN_tally, IA_tally)
   ```
   The result should be a tibble with four columns and as many rows as the sum of the number of rows in `WI_tally`, `MN_tally`, and `IA_tally`. If you don't have it right yet, keep fiddling and/or ask for help.
