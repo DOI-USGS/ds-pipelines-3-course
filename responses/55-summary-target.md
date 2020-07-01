@@ -6,7 +6,7 @@ To connect both combiners to the main pipeline - and more broadly to follow pipe
 
 Let's take a moment to decide *which* effects of the task table we want to be visible. For this we need to check our project plans, because what we want does differ by project...ahh, here they are: In this course project we won't ever need to revisit the state-specific data tables again, so we don't need to carry those `WI_data`, `WI_tally`, etc. objects back to the main pipeline. The `obs_tallies` argument will be sufficient to store the state tallies, and the *timeseries_plots.yml* file is sufficient to represent the status of the plot .png files.
 
-Great! So we only have two outputs that need to be represented by `state_tasks`: the big tallies table and the plot summary file. Unfortunately, two outputs is still one too many. How can we tell the main pipeline about these two objects using just one output?
+Great! So we only have two outputs that need to be represented by `obs_tallies`: the big tallies table and the plot summary file. Unfortunately, two outputs is still one too many. How can we tell the main pipeline about these two objects using just one output?
 
 This challenge should be ringing bells for you, because we've actually solved it twice already.
 * The first time was with the inventory splitter, where we split the inventory but also created a summary file of the split-up inventory files.
