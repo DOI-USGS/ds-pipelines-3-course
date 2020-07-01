@@ -2,7 +2,7 @@
 
 It's time to reap the rewards from your first combiner.
 
-- [ ] Create a new target in *remake.yml* that takes advantage of your new combined tallies. Use the `plot_data_coverage()` function already defined for you (find it by searching or browing the repository - remember `Ctrl-.`), and pass in `state_tasks` as the `oldest_site_tallies` argument. Set up your target to create a file named "3_visualize/out/data_coverage.png". Remember to add the source file to the `sources` list in *remake.yml*, and set up your pipeline to build this new target as part of the default build.
+- [ ] Create a new target in *remake.yml* that takes advantage of your new combined tallies. Use the `plot_data_coverage()` function already defined for you (find it by searching or browing the repository - remember `Ctrl-.`), and pass in `obs_tallies` as the `oldest_site_tallies` argument. Set up your target to create a file named "3_visualize/out/data_coverage.png". Remember to add the source file to the `sources` list in *remake.yml*, and set up your pipeline to build this new target as part of the default build.
 
 - [ ] Test your new target by running `scmake()`, then checking out *3_visualize/out/data_coverage.png*.
 
