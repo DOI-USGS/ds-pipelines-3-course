@@ -20,6 +20,8 @@ To ensure that a task-table target like `state_tasks` always rebuilds when there
 
 - [ ] It would be ideal to also declare `parameter` as a dependency to `state_tasks`, because `parameter` is needed by each call to `get_site_data()`. It's not strictly necessary in this example because `oldest_active_sites` will almost certainly change if `parameter` changes...but oh, heck, go ahead an add it anyway to build good habits. Rather than including `parameter` as an argument to the `do_state_tasks()` call, add it to the (new) `depends` field for the `state_tasks` target.
 
+:bulb: Note: There are two ways to declare dependencies to a target in **scipiper**, and we're asking you to use them both here. The first is to explicitly pass in an object or filename as an argument to the function you call in the `command` field. The second is to list an object or filename in the `depends` field. Although it's less common to include a `depends` field for normal targets, it's always an option, and you've been using the `depends` field for the default (`all`) target throughout these pipelines courses, so it's not a totally new idea.
+
 When you're satisfied with your code, commit your changes to existing R and YAML files, and also commit the new *123_state_tasks.yml* file.
 
 We've gone both ways on committing *XYZ_tasks.yml* files (such as *123_state_tasks.yml*) in the past.
